@@ -29,21 +29,29 @@
 
         <div class="tabs__tab" id="tab_2" data-tab-info>
             <h1>Projects</h1>
-            <div class="project">
+            <div class="project" onclick="toggleProject('project1')">
                 <div class="project-heading">Predictive Maintenance using Machine Learning</div>
-                <div class="project-description">This project leverages real-time sensor data to predict equipment failures before they happen, ensuring increased operational efficiency and reducing downtime.</div>
+                <div id="project1" class="project-description" style="display: none;">
+                    <p>This project leverages real-time sensor data to predict equipment failures before they happen, ensuring increased operational efficiency and reducing downtime.</p>
+                </div>
             </div>
-            <div class="project">
+            <div class="project" onclick="toggleProject('project2')">
                 <div class="project-heading">Customer Segmentation Analysis</div>
-                <div class="project-description">In this project, clustering algorithms were used to identify different customer behavior patterns, enhancing targeted marketing strategies.</div>
+                <div id="project2" class="project-description" style="display: none;">
+                    <p>In this project, clustering algorithms were used to identify different customer behavior patterns, enhancing targeted marketing strategies.</p>
+                </div>
             </div>
-            <div class="project">
+            <div class="project" onclick="toggleProject('project3')">
                 <div class="project-heading">Automated Chatbot for Academic Support</div>
-                <div class="project-description">We designed a chatbot using NLP models to assist students with academic queries, providing real-time support and streamlining academic assistance.</div>
+                <div id="project3" class="project-description" style="display: none;">
+                    <p>We designed a chatbot using NLP models to assist students with academic queries, providing real-time support and streamlining academic assistance.</p>
+                </div>
             </div>
-            <div class="project">
+            <div class="project" onclick="toggleProject('project4')">
                 <div class="project-heading">Healthcare Image Classification</div>
-                <div class="project-description">Deep learning techniques were applied to medical images for cancer detection, aiming for early diagnosis and better treatment outcomes.</div>
+                <div id="project4" class="project-description" style="display: none;">
+                    <p>Deep learning techniques were applied to medical images for cancer detection, aiming for early diagnosis and better treatment outcomes.</p>
+                </div>
             </div>
         </div>
 
@@ -85,6 +93,15 @@
                 });
             });
         });
+
+        function toggleProject(projectId) {
+            const projectDescription = document.getElementById(projectId);
+            if (projectDescription.style.display === "none") {
+                projectDescription.style.display = "block";
+            } else {
+                projectDescription.style.display = "none";
+            }
+        }
     </script>
 </body>
 
