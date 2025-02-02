@@ -105,11 +105,22 @@
 
                     this.classList.add("active");
                     document.querySelector(this.getAttribute("data-tab-value")).classList.add("active");
+                    history.pushState({ tab: this.getAttribute("data-tab-value") }, "", this.getAttribute("data-tab-value"));
                 });
+            });
+
+            window.addEventListener("popstate", function (e) {
+                const tab = e.state ? e.state.tab : '#tab_1';
+                tabs.forEach(t => t.classList.remove("active"));
+                tabContents.forEach(c => c.classList.remove("active"));
+                document.querySelector(`[data-tab-value="${tab}"]`).classList.add("active");
+                document.querySelector(tab).classList.add("active");
             });
         });
 
         function openProject(projectId) {
+            // Update the URL to the project URL
+            history.pushState({ project: projectId }, "", `/projects/${projectId}`);
             // Hide the list of projects
             document.getElementById('projects-list').style.display = 'none';
             // Show the selected project content
@@ -117,12 +128,23 @@
         }
 
         function backToProjects() {
+            // Update the URL back to the projects page
+            history.pushState({ tab: '#tab_2' }, "", "/projects");
             // Show the list of projects again
             document.getElementById('projects-list').style.display = 'block';
             // Hide all project details
             const projectContents = document.querySelectorAll('.project-content');
             projectContents.forEach(content => content.style.display = 'none');
         }
+
+        // Load the correct content based on the URL when the page loads
+        window.addEventListener('load', function () {
+            const path = window.location.pathname;
+            if (path.startsWith('/projects/')) {
+                const projectId = path.split('/').pop();
+                openProject(projectId);
+            }
+        });
     </script>
 </body>
 
