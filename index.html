@@ -11,7 +11,7 @@
         .tabs__tab.active { display: block; }
         nav ul { display: flex; justify-content: space-around; list-style: none; padding: 0; }
         nav ul li { margin: 0 10px; }
-        nav ul li a { text-decoration: none; font-size: 18px; }
+        nav ul li a { text-decoration: none; font-size: 18px; cursor: pointer; }
         #project-content { margin-top: 20px; }
     </style>
 </head>
@@ -19,10 +19,10 @@
 <body>
     <nav>
         <ul>
-            <li><a href="?tab=home" class="tab-link" data-tab="tab_1">Home</a></li>
-            <li><a href="?tab=projects" class="tab-link" data-tab="tab_2">Projects</a></li>
-            <li><a href="?tab=publications" class="tab-link" data-tab="tab_3">Publications</a></li>
-            <li><a href="?tab=stories" class="tab-link" data-tab="tab_4">Data Science Stories</a></li>
+            <li><a href="#" class="tab-link" data-tab="tab_1">Home</a></li>
+            <li><a href="#" class="tab-link" data-tab="tab_2">Projects</a></li>
+            <li><a href="#" class="tab-link" data-tab="tab_3">Publications</a></li>
+            <li><a href="#" class="tab-link" data-tab="tab_4">Data Science Stories</a></li>
         </ul>
     </nav>
 
@@ -38,10 +38,10 @@
         <section class="tabs__tab" id="tab_2">
             <h1>Projects</h1>
             <ul id="projects-list">
-                <li><a href="?project=project1" class="project-link" data-project="project1">Predictive Maintenance</a></li>
-                <li><a href="?project=project2" class="project-link" data-project="project2">Customer Segmentation</a></li>
-                <li><a href="?project=project3" class="project-link" data-project="project3">Academic Chatbot</a></li>
-                <li><a href="?project=project4" class="project-link" data-project="project4">Healthcare Image Classification</a></li>
+                <li><a href="#" class="project-link" data-project="project1">Predictive Maintenance</a></li>
+                <li><a href="#" class="project-link" data-project="project2">Customer Segmentation</a></li>
+                <li><a href="#" class="project-link" data-project="project3">Academic Chatbot</a></li>
+                <li><a href="#" class="project-link" data-project="project4">Healthcare Image Classification</a></li>
             </ul>
             <div id="project-content"></div>
         </section>
@@ -60,14 +60,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const tabs = document.querySelectorAll(".tab-link");
-            const projects = document.querySelectorAll(".project-link");
             const tabContents = document.querySelectorAll(".tabs__tab");
             const projectContent = document.getElementById("project-content");
+            const projects = document.querySelectorAll(".project-link");
 
             function setActiveTab(tabId) {
                 tabContents.forEach(tab => tab.classList.remove("active"));
                 document.getElementById(tabId).classList.add("active");
-                history.pushState({ tab: tabId }, "", `?tab=${tabId}`);
+                localStorage.setItem("activeTab", tabId);
             }
 
             function loadProject(projectId) {
@@ -78,7 +78,6 @@
                     "project4": "<h2>Healthcare Image Classification</h2><p>Deep learning applied to medical images for cancer detection.</p>",
                 };
                 projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
-                history.pushState({ project: projectId }, "", `?project=${projectId}`);
             }
 
             tabs.forEach(tab => {
@@ -95,15 +94,11 @@
                 });
             });
 
-            const params = new URLSearchParams(window.location.search);
-            if (params.get("tab")) {
-                setActiveTab(params.get("tab"));
-            }
-            if (params.get("project")) {
-                loadProject(params.get("project"));
+            const savedTab = localStorage.getItem("activeTab");
+            if (savedTab) {
+                setActiveTab(savedTab);
             }
         });
     </script>
 </body>
-
 </html>
