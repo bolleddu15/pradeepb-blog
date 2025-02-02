@@ -22,7 +22,7 @@
             line-height: 1.6;
             text-align: center;
             position: relative;
-            padding-bottom: 100px; /* Space for footer */
+            padding-bottom: 100px;
         }
 
         .container {
@@ -117,14 +117,14 @@
         }
 
         .footer a {
-            margin: 0 15px;
+            margin: 0 10px;
             text-decoration: none;
             display: inline-block;
         }
 
         .footer img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -145,8 +145,8 @@
             }
 
             .footer img {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
             }
         }
     </style>
@@ -154,14 +154,15 @@
 
 <body>
     <div class="tabs">
-        <span class="active" data-tab-value="#tab_1">Home</span>
+        <span class="active" data-tab-value="#tab_1"></span>
         <span data-tab-value="#tab_2">Projects</span>
         <span data-tab-value="#tab_3">Publications</span>
+        <span data-tab-value="#tab_4">Data Science Stories</span>
     </div>
 
     <div class="tab-content">
         <div class="tabs__tab active" id="tab_1" data-tab-info>
-            <h1>Home</h1>
+            <h1>Welcome</h1>
             <div class="container">
                 <img src="https://yourimageurl.com/image.jpg" alt="Profile Image" class="profile-img">
                 <div class="content">
@@ -172,18 +173,19 @@
         <div class="tabs__tab" id="tab_2" data-tab-info>
             <h1>Projects</h1>
             <ul>
-                <li><strong>Predictive Maintenance using Machine Learning</strong> - Developed a model to predict equipment failures using sensor data. This project helped improve uptime and reduce maintenance costs for a manufacturing company.</li>
-                <li><strong>Customer Segmentation Analysis</strong> - Applied clustering techniques to identify customer behavior patterns. The insights were used to tailor marketing campaigns and improve customer retention.</li>
-                <li><strong>Automated Chatbot for Academic Support</strong> - Built an AI-powered chatbot to assist students with academic queries. This solution increased student engagement and improved response times for academic inquiries.</li>
-                <li><strong>Healthcare Image Classification</strong> - Designed a deep learning model for cancer detection in medical images. The model has shown promising results in identifying early-stage cancers with high accuracy, providing valuable assistance to healthcare professionals.</li>
+                <li><strong>Predictive Maintenance using Machine Learning</strong> - Developed a model to predict equipment failures using sensor data.</li>
+                <li><strong>Customer Segmentation Analysis</strong> - Applied clustering techniques to identify customer behavior patterns.</li>
+                <li><strong>Automated Chatbot for Academic Support</strong> - Built an AI-powered chatbot to assist students with academic queries.</li>
+                <li><strong>Healthcare Image Classification</strong> - Designed a deep learning model for cancer detection in medical images.</li>
             </ul>
-            <p>Each of these projects involved using cutting-edge machine learning algorithms, including neural networks, regression models, and clustering techniques. The goal was to solve complex business problems and bring about tangible benefits.</p>
         </div>
         <div class="tabs__tab" id="tab_3" data-tab-info>
             <h1>Publications</h1>
-            <p>I have authored several research papers focused on AI-driven solutions, data analytics, and deep learning innovations. One of my key papers discusses the use of deep neural networks for predictive maintenance in industrial settings, showing how AI can prevent costly equipment failures.</p>
-            <p>Another publication delves into the application of graph neural networks in fraud detection for financial transactions. By identifying anomalous patterns in large-scale data, these models can prevent significant financial losses.</p>
-            <p>My latest publication focuses on machine learning’s role in healthcare, specifically in cancer detection and diagnosis. This research has the potential to significantly improve early diagnosis rates, ultimately saving lives and reducing healthcare costs.</p>
+            <p>I have authored several research papers focused on AI-driven solutions, data analytics, and deep learning innovations.</p>
+        </div>
+        <div class="tabs__tab" id="tab_4" data-tab-info>
+            <h1>Data Science Stories</h1>
+            <p>Here, I share real-world stories of how data science is making an impact across different industries.</p>
         </div>
     </div>
 
