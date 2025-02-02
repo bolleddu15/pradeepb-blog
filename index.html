@@ -60,7 +60,7 @@
             border-radius: 5px;
         }
 
-        .tabs span:hover {
+        .tabs span:hover, .tabs span.active {
             background: lightgrey;
             color: black;
         }
@@ -137,7 +137,7 @@
     </div>
 
     <div class="tabs">
-        <span data-tab-value="#tab_1">Home</span>
+        <span class="active" data-tab-value="#tab_1">Home</span>
         <span data-tab-value="#tab_2">Projects</span>
         <span data-tab-value="#tab_3">Publications</span>
     </div>
@@ -163,6 +163,23 @@
             <p>One of my key research projects highlights the use of graph neural networks for fraud detection in financial transactions.</p>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll(".tabs span");
+            const tabContents = document.querySelectorAll("[data-tab-info]");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    tabContents.forEach(c => c.classList.remove("active"));
+
+                    this.classList.add("active");
+                    document.querySelector(this.getAttribute("data-tab-value")).classList.add("active");
+                });
+            });
+        });
+    </script>
 
     <div class="footer">
         <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
