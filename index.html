@@ -17,55 +17,63 @@
         body {
             background: white;
             color: black;
-            padding: 2rem;
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
-            text-align: center;
             position: relative;
-            padding-bottom: 100px; /* Space for footer */
+            padding-left: 250px; /* Space for sidebar */
+            transition: background 0.3s ease-in-out;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            padding: 2rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 10px 0;
+            display: block;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .sidebar a:hover {
+            color: lightgrey;
+        }
+
+        .toggle-mode {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: lightgrey;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
         .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .profile-img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            background-blend-mode: multiply;
-            opacity: 0.9;
-            border: none;
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
+            padding: 2rem;
+            max-width: 900px;
+            margin: auto;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
-            font-weight: 700;
-        }
-
-        h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        p {
-            font-family: 'Merriweather', serif;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
         }
 
         .tabs {
@@ -89,12 +97,6 @@
             color: black;
         }
 
-        .tab-content {
-            font-size: 18px;
-            padding: 2rem;
-            line-height: 1.8;
-        }
-
         [data-tab-info] {
             display: none;
         }
@@ -103,109 +105,51 @@
             display: block;
         }
 
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 18px;
-            background: #f8f8f8;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .footer a {
-            margin: 0 15px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .footer img {
-            width: 50px;
-            height: 50px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .footer img:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer img {
-                width: 40px;
-                height: 40px;
-            }
+        .dark-mode {
+            background: #121212;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <div class="tabs">
-        <span class="active" data-tab-value="#tab_1">Home</span>
-        <span data-tab-value="#tab_2">Projects</span>
-        <span data-tab-value="#tab_3">Publications</span>
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <a href="#tab_1">Home</a>
+        <a href="#tab_2">Projects</a>
+        <a href="#tab_3">Publications</a>
+        <button class="toggle-mode">Toggle Dark Mode</button>
     </div>
 
-    <div class="tab-content">
-        <div class="tabs__tab active" id="tab_1" data-tab-info>
-            <h1>Home</h1>
-            <div class="container">
-                <img src="https://yourimageurl.com/image.jpg" alt="Profile Image" class="profile-img">
-                <div class="content">
-                    <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI. I work on various projects ranging from healthcare AI solutions to predictive analytics and customer segmentation. The goal of this blog is to inspire others and push the boundaries of what is possible with data science.</p>
-                </div>
+    <div class="container">
+        <div class="tabs">
+            <span class="active" data-tab-value="#tab_1">Home</span>
+            <span data-tab-value="#tab_2">Projects</span>
+            <span data-tab-value="#tab_3">Publications</span>
+        </div>
+
+        <div class="tab-content">
+            <div class="tabs__tab active" id="tab_1" data-tab-info>
+                <h1>Home</h1>
+                <p>Welcome to my data science blog, where I explore AI, ML, and more.</p>
+            </div>
+            <div class="tabs__tab" id="tab_2" data-tab-info>
+                <h1>Projects</h1>
+                <p>Exploring predictive maintenance, chatbots, and AI-driven healthcare.</p>
+            </div>
+            <div class="tabs__tab" id="tab_3" data-tab-info>
+                <h1>Publications</h1>
+                <p>Researching AI applications in real-world scenarios.</p>
             </div>
         </div>
-        <div class="tabs__tab" id="tab_2" data-tab-info>
-            <h1>Projects</h1>
-            <ul>
-                <li><strong>Predictive Maintenance using Machine Learning</strong> - Developed a model to predict equipment failures using sensor data. This project helped improve uptime and reduce maintenance costs for a manufacturing company.</li>
-                <li><strong>Customer Segmentation Analysis</strong> - Applied clustering techniques to identify customer behavior patterns. The insights were used to tailor marketing campaigns and improve customer retention.</li>
-                <li><strong>Automated Chatbot for Academic Support</strong> - Built an AI-powered chatbot to assist students with academic queries. This solution increased student engagement and improved response times for academic inquiries.</li>
-                <li><strong>Healthcare Image Classification</strong> - Designed a deep learning model for cancer detection in medical images. The model has shown promising results in identifying early-stage cancers with high accuracy, providing valuable assistance to healthcare professionals.</li>
-            </ul>
-            <p>Each of these projects involved using cutting-edge machine learning algorithms, including neural networks, regression models, and clustering techniques. The goal was to solve complex business problems and bring about tangible benefits.</p>
-        </div>
-        <div class="tabs__tab" id="tab_3" data-tab-info>
-            <h1>Publications</h1>
-            <p>I have authored several research papers focused on AI-driven solutions, data analytics, and deep learning innovations. One of my key papers discusses the use of deep neural networks for predictive maintenance in industrial settings, showing how AI can prevent costly equipment failures.</p>
-            <p>Another publication delves into the application of graph neural networks in fraud detection for financial transactions. By identifying anomalous patterns in large-scale data, these models can prevent significant financial losses.</p>
-            <p>My latest publication focuses on machine learning’s role in healthcare, specifically in cancer detection and diagnosis. This research has the potential to significantly improve early diagnosis rates, ultimately saving lives and reducing healthcare costs.</p>
-        </div>
-    </div>
-
-    <div class="footer">
-        <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-        </a>
-        <a href="https://drive.google.com/file/d/1IdIyi9yERKu6gIyuJ5QrGvgG1oj656Zg/view?usp=drive_link" target="_blank" aria-label="Resume">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135765.png" alt="Resume">
-        </a>
-        <a href="https://github.com/bolleddu15" target="_blank" aria-label="GitHub">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-        </a>
-        <a href="mailto:bolleddu.pradeep01@gmail.com" aria-label="Email">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-        </a>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const tabs = document.querySelectorAll(".tabs span");
             const tabContents = document.querySelectorAll("[data-tab-info]");
+            const toggleMode = document.querySelector(".toggle-mode");
+            const body = document.body;
 
             tabs.forEach(tab => {
                 tab.addEventListener("click", function () {
@@ -215,6 +159,10 @@
                     this.classList.add("active");
                     document.querySelector(this.getAttribute("data-tab-value")).classList.add("active");
                 });
+            });
+
+            toggleMode.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
             });
         });
     </script>
