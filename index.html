@@ -7,12 +7,37 @@
     <title>Home | Pradeep Bolleddu</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .tabs__tab { display: none; width: 100vw; height: 100vh; padding: 20px; box-sizing: border-box; }
-        .tabs__tab.active { display: block; }
-        nav ul { display: flex; justify-content: space-around; list-style: none; padding: 0; }
-        nav ul li { margin: 0 10px; }
-        nav ul li a { text-decoration: none; font-size: 18px; }
-        #content { margin-top: 20px; }
+        .tabs__tab {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .tabs__tab.active {
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        #content {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -78,6 +103,7 @@
             }
 
             function loadProject(projectId) {
+                console.log("Loading project:", projectId); // Debugging line
                 const projectData = {
                     "project1": "<h2>Predictive Maintenance</h2><p>Real-time sensor data predicts failures before they occur.</p>",
                     "project2": "<h2>Customer Segmentation</h2><p>Clustering algorithms identify different customer behavior patterns.</p>",
@@ -89,6 +115,7 @@
             }
 
             function loadPublication(publicationId) {
+                console.log("Loading publication:", publicationId); // Debugging line
                 const publicationData = {
                     "pub1": "<h2>Deep Learning for Healthcare</h2><p>Using AI for medical diagnostics and predictive analytics.</p>",
                     "pub2": "<h2>AI in Financial Markets</h2><p>Exploring algorithmic trading and risk assessment.</p>",
