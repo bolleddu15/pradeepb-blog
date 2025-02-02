@@ -21,6 +21,8 @@
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             text-align: center;
+            position: relative;
+            padding-bottom: 100px; /* Space for footer */
         }
 
         .container {
@@ -102,10 +104,16 @@
         }
 
         .footer {
-            margin-top: 3rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
             text-align: center;
             font-size: 18px;
+            background: #f8f8f8;
             padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
 
         .footer a {
@@ -154,7 +162,12 @@
     <div class="tab-content">
         <div class="tabs__tab active" id="tab_1" data-tab-info>
             <h1>Home</h1>
-            <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI. I work on various projects ranging from healthcare AI solutions to predictive analytics and customer segmentation. The goal of this blog is to inspire others and push the boundaries of what is possible with data science.</p>
+            <div class="container">
+                <img src="https://yourimageurl.com/image.jpg" alt="Profile Image" class="profile-img">
+                <div class="content">
+                    <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI. I work on various projects ranging from healthcare AI solutions to predictive analytics and customer segmentation. The goal of this blog is to inspire others and push the boundaries of what is possible with data science.</p>
+                </div>
+            </div>
         </div>
         <div class="tabs__tab" id="tab_2" data-tab-info>
             <h1>Projects</h1>
