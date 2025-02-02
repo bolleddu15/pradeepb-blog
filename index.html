@@ -6,6 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Pradeep Bolleddu</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tabs span {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tabs span.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .tabs__tab {
+            display: none;
+        }
+
+        .tabs__tab.active {
+            display: block;
+        }
+
+        .project-content {
+            display: none;
+        }
+
+        .project-heading {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-heading:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +82,7 @@
     </div>
 
     <div class="tab-content">
-        <div class="tabs__tab active" id="tab_1" data-tab-info>
+        <div class="tabs__tab active" id="tab_1">
             <h1>Welcome</h1>
             <div class="container">
                 <img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/my%20image.jpeg" alt="Profile Image" class="profile-img">
@@ -27,7 +92,7 @@
             </div>
         </div>
 
-        <div class="tabs__tab" id="tab_2" data-tab-info>
+        <div class="tabs__tab" id="tab_2">
             <h1>Projects</h1>
             <div id="projects-list">
                 <div class="project" onclick="openProject('project1')">
@@ -43,35 +108,14 @@
                     <div class="project-heading">Healthcare Image Classification</div>
                 </div>
             </div>
-
-            <!-- Individual Project Details (Hidden initially) -->
-            <div id="project1-content" class="project-content" style="display: none;">
-                <h2>Predictive Maintenance using Machine Learning</h2>
-                <p>This project leverages real-time sensor data to predict equipment failures before they happen, ensuring increased operational efficiency and reducing downtime.</p>
-            </div>
-
-            <div id="project2-content" class="project-content" style="display: none;">
-                <h2>Customer Segmentation Analysis</h2>
-                <p>In this project, clustering algorithms were used to identify different customer behavior patterns, enhancing targeted marketing strategies.</p>
-            </div>
-
-            <div id="project3-content" class="project-content" style="display: none;">
-                <h2>Automated Chatbot for Academic Support</h2>
-                <p>We designed a chatbot using NLP models to assist students with academic queries, providing real-time support and streamlining academic assistance.</p>
-            </div>
-
-            <div id="project4-content" class="project-content" style="display: none;">
-                <h2>Healthcare Image Classification</h2>
-                <p>Deep learning techniques were applied to medical images for cancer detection, aiming for early diagnosis and better treatment outcomes.</p>
-            </div>
         </div>
 
-        <div class="tabs__tab" id="tab_3" data-tab-info>
+        <div class="tabs__tab" id="tab_3">
             <h1>Publications</h1>
             <p>I have authored several research papers focused on AI-driven solutions, data analytics, and deep learning innovations, which have been published in top journals and conferences.</p>
         </div>
 
-        <div class="tabs__tab" id="tab_4" data-tab-info>
+        <div class="tabs__tab" id="tab_4">
             <h1>Data Science Stories</h1>
             <p>Here, I share real-world stories of how data science is making an impact across different industries, from healthcare to finance, and driving innovation in various sectors.</p>
         </div>
@@ -79,20 +123,21 @@
 
     <div class="footer">
         <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="30">
         </a>
         <a href="https://github.com/bolleddu15" target="_blank" aria-label="GitHub">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="30">
         </a>
         <a href="mailto:bolleddu.pradeep01@gmail.com" aria-label="Email">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" width="30">
         </a>
     </div>
 
     <script>
+        // Handle tab navigation
         document.addEventListener("DOMContentLoaded", function () {
             const tabs = document.querySelectorAll(".tabs span");
-            const tabContents = document.querySelectorAll("[data-tab-info]");
+            const tabContents = document.querySelectorAll(".tabs__tab");
 
             tabs.forEach(tab => {
                 tab.addEventListener("click", function () {
@@ -100,7 +145,8 @@
                     tabContents.forEach(c => c.classList.remove("active"));
 
                     this.classList.add("active");
-                    document.querySelector(this.getAttribute("data-tab-value")).classList.add("active");
+                    const targetTab = document.querySelector(this.getAttribute("data-tab-value"));
+                    targetTab.classList.add("active");
                     history.pushState({ tab: this.getAttribute("data-tab-value") }, "", this.getAttribute("data-tab-value"));
                 });
             });
@@ -109,28 +155,54 @@
                 const tab = e.state ? e.state.tab : '#tab_1';
                 tabs.forEach(t => t.classList.remove("active"));
                 tabContents.forEach(c => c.classList.remove("active"));
-                document.querySelector(`[data-tab-value="${tab}"]`).classList.add("active");
-                document.querySelector(tab).classList.add("active");
+                const targetTab = document.querySelector(tab);
+                targetTab.classList.add("active");
+                targetTab.classList.add("active");
             });
         });
 
+        // Function to load project content dynamically
         function openProject(projectId) {
-            // Update the URL to the project URL
-            history.pushState({ project: projectId }, "", `/projects/${projectId}`);
-            // Hide the list of projects
+            const projectContents = document.querySelectorAll('.project-content');
+            projectContents.forEach(content => content.style.display = 'none');
+            
+            const projectContent = document.getElementById(`${projectId}-content`);
+            projectContent.style.display = 'block';
+
+            // Update history state to maintain navigation
+            history.pushState({ project: projectId }, "", `#${projectId}`);
+
+            // Hide project list and show selected content
             document.getElementById('projects-list').style.display = 'none';
-            // Show the selected project content
-            document.getElementById(`${projectId}-content`).style.display = 'block';
         }
 
-        // Load the correct content based on the URL when the page loads
+        // Load project content based on history state when navigating back or forward
         window.addEventListener('load', function () {
-            const path = window.location.pathname;
-            if (path.startsWith('/projects/')) {
-                const projectId = path.split('/').pop();
-                openProject(projectId);
+            const path = window.location.hash;
+            if (path.startsWith('#project')) {
+                openProject(path.substring(1));
             }
         });
+
+        // Sample project content
+        document.body.insertAdjacentHTML('beforeend', `
+            <div id="project1-content" class="project-content">
+                <h2>Predictive Maintenance using Machine Learning</h2>
+                <p>This project leverages real-time sensor data to predict equipment failures before they happen, ensuring increased operational efficiency and reducing downtime.</p>
+            </div>
+            <div id="project2-content" class="project-content">
+                <h2>Customer Segmentation Analysis</h2>
+                <p>In this project, clustering algorithms were used to identify different customer behavior patterns, enhancing targeted marketing strategies.</p>
+            </div>
+            <div id="project3-content" class="project-content">
+                <h2>Automated Chatbot for Academic Support</h2>
+                <p>We designed a chatbot using NLP models to assist students with academic queries, providing real-time support and streamlining academic assistance.</p>
+            </div>
+            <div id="project4-content" class="project-content">
+                <h2>Healthcare Image Classification</h2>
+                <p>Deep learning techniques were applied to medical images for cancer detection, aiming for early diagnosis and better treatment outcomes.</p>
+            </div>
+        `);
     </script>
 </body>
 
