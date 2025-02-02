@@ -6,33 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pradeep Bolleddu | Data Science Blog</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
             background: white;
             color: black;
             padding: 2rem;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             text-align: center;
         }
 
         .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             object-fit: cover;
             background-blend-mode: multiply;
@@ -43,21 +45,41 @@
         .content {
             max-width: 800px;
             margin: 0 auto;
+            text-align: left;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        p {
+            font-family: 'Merriweather', serif;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
         }
 
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 2rem;
             margin-bottom: 2rem;
-            cursor: pointer;
         }
 
         .tabs span {
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-size: 18px;
-            transition: all 0.3s ease-in-out;
+            font-weight: 600;
+            cursor: pointer;
             border-radius: 5px;
+            transition: all 0.3s ease-in-out;
         }
 
         .tabs span:hover, .tabs span.active {
@@ -93,8 +115,8 @@
         }
 
         .footer img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -104,7 +126,9 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
 
             .tabs {
@@ -112,14 +136,9 @@
                 align-items: center;
             }
 
-            .tabs span {
-                width: 100%;
-                text-align: center;
-            }
-
             .footer img {
-                width: 30px;
-                height: 30px;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -131,8 +150,7 @@
         
         <div class="content">
             <h1>Pradeep Bolleddu</h1>
-            <p></p>
-            <p></p>
+            <p>Welcome! My mission is to apply data science and AI to build impactful solutions. I have a passion for using data-driven insights to solve real-world problems. Through advanced machine learning, predictive analytics, and AI, I am dedicated to driving innovation in every project I undertake.</p>
         </div>
     </div>
 
@@ -145,23 +163,39 @@
     <div class="tab-content">
         <div class="tabs__tab active" id="tab_1" data-tab-info>
             <h1>About</h1>
-            <p>Welcome ! My mission is to apply data science and AI to build impactful solutions.</p>
+            <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI. I work on various projects ranging from healthcare AI solutions to predictive analytics and customer segmentation. The goal of this blog is to inspire others and push the boundaries of what is possible with data science.</p>
         </div>
         <div class="tabs__tab" id="tab_2" data-tab-info>
             <h1>Projects</h1>
             <ul>
-                <li><strong>Predictive Maintenance using Machine Learning</strong> - Developed a model to predict equipment failures using sensor data.</li>
-                <li><strong>Customer Segmentation Analysis</strong> - Applied clustering techniques to identify customer behavior patterns.</li>
-                <li><strong>Automated Chatbot for Academic Support</strong> - Built an AI-powered chatbot to assist students with academic queries.</li>
-                <li><strong>Healthcare Image Classification</strong> - Designed a deep learning model for cancer detection in medical images.</li>
+                <li><strong>Predictive Maintenance using Machine Learning</strong> - Developed a model to predict equipment failures using sensor data. This project helped improve uptime and reduce maintenance costs for a manufacturing company.</li>
+                <li><strong>Customer Segmentation Analysis</strong> - Applied clustering techniques to identify customer behavior patterns. The insights were used to tailor marketing campaigns and improve customer retention.</li>
+                <li><strong>Automated Chatbot for Academic Support</strong> - Built an AI-powered chatbot to assist students with academic queries. This solution increased student engagement and improved response times for academic inquiries.</li>
+                <li><strong>Healthcare Image Classification</strong> - Designed a deep learning model for cancer detection in medical images. The model has shown promising results in identifying early-stage cancers with high accuracy, providing valuable assistance to healthcare professionals.</li>
             </ul>
+            <p>Each of these projects involved using cutting-edge machine learning algorithms, including neural networks, regression models, and clustering techniques. The goal was to solve complex business problems and bring about tangible benefits.</p>
         </div>
         <div class="tabs__tab" id="tab_3" data-tab-info>
             <h1>Publications</h1>
-            <p>I have authored multiple research papers focusing on AI-driven solutions, data analytics, and deep learning innovations.</p>
-            <p>My latest publication on predictive analytics explores how machine learning enhances decision-making across various industries.</p>
-            <p>One of my key research projects highlights the use of graph neural networks for fraud detection in financial transactions.</p>
+            <p>I have authored several research papers focused on AI-driven solutions, data analytics, and deep learning innovations. One of my key papers discusses the use of deep neural networks for predictive maintenance in industrial settings, showing how AI can prevent costly equipment failures.</p>
+            <p>Another publication delves into the application of graph neural networks in fraud detection for financial transactions. By identifying anomalous patterns in large-scale data, these models can prevent significant financial losses.</p>
+            <p>My latest publication focuses on machine learning’s role in healthcare, specifically in cancer detection and diagnosis. This research has the potential to significantly improve early diagnosis rates, ultimately saving lives and reducing healthcare costs.</p>
         </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+        </a>
+        <a href="https://drive.google.com/file/d/1IdIyi9yERKu6gIyuJ5QrGvgG1oj656Zg/view?usp=drive_link" target="_blank" aria-label="Resume">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135765.png" alt="Resume">
+        </a>
+        <a href="https://github.com/bolleddu15" target="_blank" aria-label="GitHub">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        </a>
+        <a href="mailto:bolleddu.pradeep01@gmail.com" aria-label="Email">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+        </a>
     </div>
 
     <script>
@@ -180,20 +214,6 @@
             });
         });
     </script>
-
-    <div class="footer">
-        <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-        </a>
-        <a href="https://drive.google.com/file/d/1IdIyi9yERKu6gIyuJ5QrGvgG1oj656Zg/view?usp=drive_link" target="_blank" aria-label="Resume">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135765.png" alt="Resume">
-        </a>
-        <a href="https://github.com/bolleddu15" target="_blank" aria-label="GitHub">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-        </a>
-        <a href="mailto:bolleddu.pradeep01@gmail.com" aria-label="Email">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-        </a>
-    </div>
 </body>
+
 </html>
