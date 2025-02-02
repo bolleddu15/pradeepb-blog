@@ -9,10 +9,27 @@
     <style>
         .tabs__tab { display: none; width: 100vw; height: 100vh; padding: 20px; box-sizing: border-box; overflow-y: auto; }
         .tabs__tab.active { display: block; }
+
         nav ul { display: flex; justify-content: space-around; list-style: none; padding: 0; }
         nav ul li { margin: 0 10px; }
         nav ul li a { text-decoration: none; font-size: 18px; }
         #content { margin-top: 20px; }
+
+        /* Image styling */
+        #home-section {
+            position: relative;
+            padding-left: 100px; /* Adjust space to the left of the image */
+        }
+
+        #home-section img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 120px; /* Adjust the size of your image */
+            height: auto;
+            border-radius: 50%; /* Make the image circular */
+            border: 3px solid white; /* Optional, gives a smooth blend effect */
+        }
     </style>
 </head>
 
@@ -28,8 +45,12 @@
 
     <main>
         <section class="tabs__tab active" id="tab_1">
-            <h1>Welcome</h1>
-            <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI.</p>
+            <div id="home-section">
+                <!-- Home section content -->
+                <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu">
+                <h1>Welcome</h1>
+                <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI.</p>
+            </div>
         </section>
 
         <section class="tabs__tab" id="tab_2">
@@ -61,6 +82,18 @@
             <p>Real-world insights on how data science transforms industries.</p>
         </section>
     </main>
+
+    <div class="footer">
+        <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/bolleddu15" target="_blank" aria-label="GitHub">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        </a>
+        <a href="mailto:bolleddu.pradeep01@gmail.com" aria-label="Email">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+        </a>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
