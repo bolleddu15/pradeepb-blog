@@ -4,192 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pradeep's Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            background: #333;
-            padding: 10px;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li {
-            margin-right: 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 12px;
-        }
-        nav ul li a:hover {
-            background: #555;
-            border-radius: 5px;
-        }
-        .tabs {
-            margin: 20px;
-        }
-        .tabs__tab {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .tabs__tab.active {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- Navigation Bar -->
 <nav>
     <ul>
-        <li><a href="#tab_1" class="tab-link" data-tab="tab_1">Home</a></li>
-        <li><a href="#tab_2" class="tab-link" data-tab="tab_2">Projects</a></li>
-        <li><a href="#tab_3" class="tab-link" data-tab="tab_3">Publications</a></li>
-        <li><a href="#tab_4" class="tab-link" data-tab="tab_4">Data Science Stories</a></li>
+        <li><a href="#home" class="tab-link" data-tab="home">Home</a></li>
+        <li><a href="#projects" class="tab-link" data-tab="projects">Projects</a></li>
+        <li><a href="#publications" class="tab-link" data-tab="publications">Publications</a></li>
+        <li><a href="#stories" class="tab-link" data-tab="stories">Data Science Stories</a></li>
     </ul>
 </nav>
 
 <!-- Tab Content -->
 <div class="tabs">
-    <div id="tab_1" class="tabs__tab active">
+    <div id="home" class="tabs__tab active">
         <h2>Home</h2>
         <p>Welcome to my blog! Here, I share insights on Data Science, AI, and more.</p>
     </div>
-    <div id="tab_2" class="tabs__tab">
+    <div id="projects" class="tabs__tab">
         <h2>Projects</h2>
         <p>Here are some of my data science and AI projects.</p>
     </div>
-    <div id="tab_3" class="tabs__tab">
+    <div id="publications" class="tabs__tab">
         <h2>Publications</h2>
         <p>These are my research papers and publications.</p>
     </div>
-    <div id="tab_4" class="tabs__tab">
-        <h2>Data Science Stories</h2>
-        <p>Read about real-world data science applications and experiences.</p>
-    </div>
-</div>
-
-<!-- JavaScript for Tab Functionality -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const tabContents = document.querySelectorAll(".tabs__tab");
-        const tabLinks = document.querySelectorAll(".tab-link");
-
-        function setActiveTab(tabId) {
-            tabContents.forEach(tab => tab.classList.remove("active"));
-            document.getElementById(tabId).classList.add("active");
-            history.pushState({ tabId }, "", `#${tabId}`);
-        }
-
-        tabLinks.forEach(link => {
-            link.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent page reload
-                const tabId = link.getAttribute("data-tab");
-                setActiveTab(tabId);
-            });
-        });
-
-        // Handle back/forward navigation
-        window.addEventListener("popstate", (event) => {
-            if (event.state && event.state.tabId) {
-                setActiveTab(event.state.tabId);
-            }
-        });
-
-        // Load correct tab on refresh
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            setActiveTab(hash);
-        }
-    });
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pradeep's Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            background: #333;
-            padding: 10px;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li {
-            margin-right: 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 12px;
-        }
-        nav ul li a:hover {
-            background: #555;
-            border-radius: 5px;
-        }
-        .tabs {
-            margin: 20px;
-        }
-        .tabs__tab {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .tabs__tab.active {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-<!-- Navigation Bar -->
-<nav>
-    <ul>
-        <li><a href="#tab_1" class="tab-link" data-tab="tab_1">Home</a></li>
-        <li><a href="#tab_2" class="tab-link" data-tab="tab_2">Projects</a></li>
-        <li><a href="#tab_3" class="tab-link" data-tab="tab_3">Publications</a></li>
-        <li><a href="#tab_4" class="tab-link" data-tab="tab_4">Data Science Stories</a></li>
-    </ul>
-</nav>
-
-<!-- Tab Content -->
-<div class="tabs">
-    <div id="tab_1" class="tabs__tab active">
-        <h2>Home</h2>
-        <p>Welcome to my blog! Here, I share insights on Data Science, AI, and more.</p>
-    </div>
-    <div id="tab_2" class="tabs__tab">
-        <h2>Projects</h2>
-        <p>Here are some of my data science and AI projects.</p>
-    </div>
-    <div id="tab_3" class="tabs__tab">
-        <h2>Publications</h2>
-        <p>These are my research papers and publications.</p>
-    </div>
-    <div id="tab_4" class="tabs__tab">
+    <div id="stories" class="tabs__tab">
         <h2>Data Science Stories</h2>
         <p>Read about real-world data science applications and experiences.</p>
     </div>
