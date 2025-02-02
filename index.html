@@ -103,7 +103,6 @@
             }
 
             function loadProject(projectId) {
-                console.log("Loading project:", projectId); // Debugging line
                 const projectData = {
                     "project1": "<h2>Predictive Maintenance</h2><p>Real-time sensor data predicts failures before they occur.</p>",
                     "project2": "<h2>Customer Segmentation</h2><p>Clustering algorithms identify different customer behavior patterns.</p>",
@@ -112,10 +111,10 @@
                 };
                 projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
                 setActiveTab("tab_project");
+                history.pushState({}, "", `?tab=project&project=${projectId}`);
             }
 
             function loadPublication(publicationId) {
-                console.log("Loading publication:", publicationId); // Debugging line
                 const publicationData = {
                     "pub1": "<h2>Deep Learning for Healthcare</h2><p>Using AI for medical diagnostics and predictive analytics.</p>",
                     "pub2": "<h2>AI in Financial Markets</h2><p>Exploring algorithmic trading and risk assessment.</p>",
@@ -124,14 +123,8 @@
                 };
                 publicationContent.innerHTML = publicationData[publicationId] || "<p>Publication not found.</p>";
                 setActiveTab("tab_publication");
+                history.pushState({}, "", `?tab=publication&publication=${publicationId}`);
             }
-
-            document.querySelectorAll(".tab-link").forEach(tab => {
-                tab.addEventListener("click", event => {
-                    event.preventDefault();
-                    setActiveTab(tab.getAttribute("data-tab"));
-                });
-            });
 
             document.querySelectorAll(".project-link").forEach(project => {
                 project.addEventListener("click", event => {
@@ -147,15 +140,24 @@
                 });
             });
 
-            const params = new URLSearchParams(window.location.search);
-            if (params.get("tab")) {
+            window.addEventListener("popstate", () => {
+                const params = new URLSearchParams(window.location.search);
                 if (params.get("tab") === "project" && params.get("project")) {
                     loadProject(params.get("project"));
                 } else if (params.get("tab") === "publication" && params.get("publication")) {
                     loadPublication(params.get("publication"));
                 } else {
-                    setActiveTab("tab_" + params.get("tab"));
+                    setActiveTab("tab_" + params.get("tab") || "tab_1");
                 }
+            });
+
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("tab") === "project" && params.get("project")) {
+                loadProject(params.get("project"));
+            } else if (params.get("tab") === "publication" && params.get("publication")) {
+                loadPublication(params.get("publication"));
+            } else {
+                setActiveTab("tab_" + params.get("tab") || "tab_1");
             }
         });
     </script>
