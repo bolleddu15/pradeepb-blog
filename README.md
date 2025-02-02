@@ -1,2 +1,2 @@
 # pradeepb-blog
-This is my website chihc is a personal portfolio 
+This is my website- a personal portfolio.
