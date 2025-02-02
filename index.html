@@ -12,7 +12,7 @@
         nav ul { display: flex; justify-content: space-around; list-style: none; padding: 0; }
         nav ul li { margin: 0 10px; }
         nav ul li a { text-decoration: none; font-size: 18px; }
-        #project-content { margin-top: 20px; }
+        #content { margin-top: 20px; }
     </style>
 </head>
 
@@ -29,10 +29,7 @@
     <main>
         <section class="tabs__tab active" id="tab_1">
             <h1>Welcome</h1>
-            <div class="container">
-                <img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/my%20image.jpeg" alt="Pradeep Bolleddu" class="profile-img">
-                <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI.</p>
-            </div>
+            <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI.</p>
         </section>
 
         <section class="tabs__tab" id="tab_2">
@@ -47,12 +44,20 @@
 
         <section class="tabs__tab" id="tab_project">
             <div id="project-content"></div>
-            <a href="?tab=projects" id="back-to-projects">Back to Projects</a>
         </section>
 
         <section class="tabs__tab" id="tab_3">
             <h1>Publications</h1>
-            <p>Explore my research papers on AI-driven solutions, data analytics, and deep learning innovations.</p>
+            <ul id="publications-list">
+                <li><a href="?tab=publication&publication=pub1" class="publication-link">Deep Learning for Healthcare</a></li>
+                <li><a href="?tab=publication&publication=pub2" class="publication-link">AI in Financial Markets</a></li>
+                <li><a href="?tab=publication&publication=pub3" class="publication-link">Autonomous Systems Research</a></li>
+                <li><a href="?tab=publication&publication=pub4" class="publication-link">NLP in Education</a></li>
+            </ul>
+        </section>
+
+        <section class="tabs__tab" id="tab_publication">
+            <div id="publication-content"></div>
         </section>
 
         <section class="tabs__tab" id="tab_4">
@@ -65,12 +70,11 @@
         document.addEventListener("DOMContentLoaded", () => {
             const tabContents = document.querySelectorAll(".tabs__tab");
             const projectContent = document.getElementById("project-content");
-            const backToProjects = document.getElementById("back-to-projects");
+            const publicationContent = document.getElementById("publication-content");
 
             function setActiveTab(tabId) {
                 tabContents.forEach(tab => tab.classList.remove("active"));
                 document.getElementById(tabId).classList.add("active");
-                history.pushState({ tab: tabId }, "", `?tab=${tabId}`);
             }
 
             function loadProject(projectId) {
@@ -82,7 +86,17 @@
                 };
                 projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
                 setActiveTab("tab_project");
-                history.pushState({ project: projectId }, "", `?tab=project&project=${projectId}`);
+            }
+
+            function loadPublication(publicationId) {
+                const publicationData = {
+                    "pub1": "<h2>Deep Learning for Healthcare</h2><p>Using AI for medical diagnostics and predictive analytics.</p>",
+                    "pub2": "<h2>AI in Financial Markets</h2><p>Exploring algorithmic trading and risk assessment.</p>",
+                    "pub3": "<h2>Autonomous Systems Research</h2><p>Advancements in robotics and self-driving cars.</p>",
+                    "pub4": "<h2>NLP in Education</h2><p>How AI is transforming learning environments.</p>",
+                };
+                publicationContent.innerHTML = publicationData[publicationId] || "<p>Publication not found.</p>";
+                setActiveTab("tab_publication");
             }
 
             document.querySelectorAll(".tab-link").forEach(tab => {
@@ -99,15 +113,19 @@
                 });
             });
 
-            backToProjects.addEventListener("click", event => {
-                event.preventDefault();
-                setActiveTab("tab_2");
+            document.querySelectorAll(".publication-link").forEach(publication => {
+                publication.addEventListener("click", event => {
+                    event.preventDefault();
+                    loadPublication(new URL(event.target.href).searchParams.get("publication"));
+                });
             });
 
             const params = new URLSearchParams(window.location.search);
             if (params.get("tab")) {
                 if (params.get("tab") === "project" && params.get("project")) {
                     loadProject(params.get("project"));
+                } else if (params.get("tab") === "publication" && params.get("publication")) {
+                    loadPublication(params.get("publication"));
                 } else {
                     setActiveTab("tab_" + params.get("tab"));
                 }
