@@ -67,6 +67,7 @@
     #publications-list {
       list-style: none;
       padding: 0;
+      text-align: left; /* ensure items start from the left */
     }
     #projects-list li,
     #publications-list li {
@@ -81,7 +82,7 @@
       cursor: pointer;
     }
     
-    /* Project description styling */
+    /* Project/Publication description styling */
     #project-content p,
     #publication-content p {
       font-family: 'Georgia', serif;
@@ -217,7 +218,12 @@
           "project1": "<h2>Predictive Maintenance</h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
           "project2": "<h2>Customer Segmentation</h2><p class='project-description'>Clustering algorithms identify different customer behavior patterns.</p>",
           "project3": "<h2>Academic Chatbot</h2><p class='project-description'>NLP models assist students with academic queries.</p>",
-          "project4": "<h2>Healthcare Image Classification</h2><p class='project-description'>Deep learning applied to medical images for cancer detection.</p>"
+          "project4": `<h2>Healthcare Image Classification</h2>
+                      <video controls width="600">
+                        <source src="https://github.com/bolleddu15/pradeepb-blog/blob/main/neural%20networks%20video.mp4?raw=true" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                      <p class='project-description'>Deep learning applied to medical images for cancer detection.</p>`
         };
         projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
         setActiveTab("tab_project");
