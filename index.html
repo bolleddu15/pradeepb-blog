@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Pradeep Bolleddu</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
+        .tabs__tab { display: none; width: 100vw; height: 100vh; padding: 20px; box-sizing: border-box; overflow-y: auto; }
+        .tabs__tab.active { display: block; }
 
-        /* Image Styling */
+        nav ul { display: flex; justify-content: space-around; list-style: none; padding: 0; }
+        nav ul li { margin: 0 10px; }
+        nav ul li a { text-decoration: none; font-size: 18px; }
+        #content { margin-top: 20px; }
+
+        /* Image styling */
         #home-section {
             position: relative;
             padding-left: 100px; /* Adjust space to the left of the image */
@@ -23,79 +25,10 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 160px; /* Increased image size */
+            width: 120px; /* Adjust the size of your image */
             height: auto;
-            border-radius: 50%;
-            border: 3px solid white;
-        }
-
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 36px;
-            color: #333;
-        }
-
-        #home-section p {
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
-            color: #555;
-            line-height: 1.6;
-            padding-top: 10px;
-        }
-
-        /* Advanced font styling for Projects */
-        #projects-list li a {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-
-        #projects-list li a:hover {
-            color: #2980b9;
-        }
-
-        /* Project Description Styling */
-        .project-description {
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
-            color: #7f8c8d;
-            line-height: 1.6;
-            margin-top: 10px;
-        }
-
-        /* Font and size adjustments for Publication titles */
-        #publications-list li a {
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-            font-weight: 500;
-            color: #34495e;
-        }
-
-        #publications-list li a:hover {
-            color: #8e44ad;
-        }
-
-        /* General Layout Styling */
-        nav ul {
-            display: flex;
-            justify-content: space-around;
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        #content {
-            margin-top: 20px;
+            border-radius: 50%; /* Make the image circular */
+            border: 3px solid white; /* Optional, gives a smooth blend effect */
         }
     </style>
 </head>
@@ -111,37 +44,28 @@
     </nav>
 
     <main>
-        <!-- Home Section -->
         <section class="tabs__tab active" id="tab_1">
             <div id="home-section">
                 <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu">
-                <h1>Welcome to My Blog</h1>
-                <p>
-                    Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI. Through this platform, I aim to showcase my work, offer educational content, and engage with the broader community in solving real-world problems through data-driven approaches.
-                    <br><br>
-                    With a background in Computer Science from IIT Ropar and a Master’s in Data Science and AI, my journey involves cutting-edge machine learning projects and groundbreaking research in AI applications. This blog is not just a place for technical content but a space to discuss how data science can transform industries such as healthcare, finance, education, and beyond.
-                    <br><br>
-                    I hope to share my experiences, explore new opportunities, and inspire others to delve deeper into the world of data science.
-                </p>
+                <h1>Welcome</h1>
+                <p>Welcome to my personal blog where I share my journey and insights in data science, machine learning, and AI.</p>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section class="tabs__tab" id="tab_2">
             <h1>Projects</h1>
             <ul id="projects-list">
-                <li><a href="/pradeepb-blog/projects/predictive-maintenance" class="project-link" data-project="project1">Predictive Maintenance</a>
-                    <p class="project-description">Predictive maintenance using sensor data to predict failures before they occur.</p></li>
-                <li><a href="/pradeepb-blog/projects/customer-segmentation" class="project-link" data-project="project2">Customer Segmentation</a>
-                    <p class="project-description">Clustering algorithms used to identify patterns in customer behavior.</p></li>
-                <li><a href="/pradeepb-blog/projects/academic-chatbot" class="project-link" data-project="project3">Academic Chatbot</a>
-                    <p class="project-description">A chatbot designed to assist students with academic queries using NLP models.</p></li>
-                <li><a href="/pradeepb-blog/projects/healthcare-classification" class="project-link" data-project="project4">Healthcare Image Classification</a>
-                    <p class="project-description">Deep learning used for classifying medical images for detecting cancer.</p></li>
+                <li><a href="/pradeepb-blog/projects/predictive-maintenance" class="project-link" data-project="project1">Predictive Maintenance</a></li>
+                <li><a href="/pradeepb-blog/projects/customer-segmentation" class="project-link" data-project="project2">Customer Segmentation</a></li>
+                <li><a href="/pradeepb-blog/projects/academic-chatbot" class="project-link" data-project="project3">Academic Chatbot</a></li>
+                <li><a href="/pradeepb-blog/projects/healthcare-classification" class="project-link" data-project="project4">Healthcare Image Classification</a></li>
             </ul>
         </section>
 
-        <!-- Publications Section -->
+        <section class="tabs__tab" id="tab_project">
+            <div id="project-content"></div>
+        </section>
+
         <section class="tabs__tab" id="tab_3">
             <h1>Publications</h1>
             <ul id="publications-list">
@@ -151,15 +75,17 @@
                 <li><a href="#" class="publication-link" data-publication="pub4">NLP in Education</a></li>
             </ul>
         </section>
-        
-        <!-- Data Science Stories Section -->
+
+        <section class="tabs__tab" id="tab_publication">
+            <div id="publication-content"></div>
+        </section>
+
         <section class="tabs__tab" id="tab_4">
             <h1>Data Science Stories</h1>
             <p>Real-world insights on how data science transforms industries.</p>
         </section>
     </main>
 
-    <!-- Footer Section -->
     <div class="footer">
         <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
@@ -173,7 +99,66 @@
     </div>
 
     <script>
-        // JavaScript for handling tab functionality (same as provided in the original code)
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabContents = document.querySelectorAll(".tabs__tab");
+            const projectContent = document.getElementById("project-content");
+            const publicationContent = document.getElementById("publication-content");
+
+            function setActiveTab(tabId, url) {
+                tabContents.forEach(tab => tab.classList.remove("active"));
+                document.getElementById(tabId).classList.add("active");
+                if (url) history.pushState({ tabId }, "", url);
+            }
+
+            function loadProject(projectId, url) {
+                const projectData = {
+                    "project1": "<h2>Predictive Maintenance</h2><p>Real-time sensor data predicts failures before they occur.</p>",
+                    "project2": "<h2>Customer Segmentation</h2><p>Clustering algorithms identify different customer behavior patterns.</p>",
+                    "project3": "<h2>Academic Chatbot</h2><p>NLP models assist students with academic queries.</p>",
+                    "project4": "<h2>Healthcare Image Classification</h2><p>Deep learning applied to medical images for cancer detection.</p>",
+                };
+                projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
+                setActiveTab("tab_project", url);
+            }
+
+            function loadPublication(publicationId, url) {
+                const publicationData = {
+                    "pub1": "<h2>Deep Learning for Healthcare</h2><p>This research explores the use of deep learning models in predicting health outcomes.</p>",
+                    "pub2": "<h2>AI in Financial Markets</h2><p>Application of AI algorithms in stock price prediction and financial decision-making.</p>",
+                    "pub3": "<h2>Autonomous Systems Research</h2><p>Investigating the latest advancements in autonomous systems and robotics.</p>",
+                    "pub4": "<h2>NLP in Education</h2><p>Exploring how Natural Language Processing can revolutionize educational tools.</p>",
+                };
+                publicationContent.innerHTML = publicationData[publicationId] || "<p>Publication not found.</p>";
+                setActiveTab("tab_publication", url);
+            }
+
+            document.querySelectorAll(".tab-link").forEach(tab => {
+                tab.addEventListener("click", event => {
+                    event.preventDefault();
+                    setActiveTab(tab.getAttribute("data-tab"), event.target.href);
+                });
+            });
+
+            document.querySelectorAll(".project-link").forEach(project => {
+                project.addEventListener("click", event => {
+                    event.preventDefault();
+                    loadProject(event.target.getAttribute("data-project"), event.target.href);
+                });
+            });
+
+            document.querySelectorAll(".publication-link").forEach(publication => {
+                publication.addEventListener("click", event => {
+                    event.preventDefault();
+                    loadPublication(event.target.getAttribute("data-publication"), event.target.href);
+                });
+            });
+
+            window.addEventListener("popstate", event => {
+                if (event.state && event.state.tabId) {
+                    setActiveTab(event.state.tabId);
+                }
+            });
+        });
     </script>
 </body>
 
