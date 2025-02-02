@@ -6,27 +6,68 @@
   <title>Home | Pradeep Bolleddu</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .tabs__tab { display: none; width: 100vw; height: 100vh; padding: 20px; box-sizing: border-box; overflow-y: auto; }
-    .tabs__tab.active { display: block; }
+    /* Tab styling */
+    .tabs__tab {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .tabs__tab.active {
+      display: block;
+    }
 
-    nav ul { display: flex; justify-content: space-around; list-style: none; padding: 0; }
-    nav ul li { margin: 0 10px; }
-    nav ul li a { text-decoration: none; font-size: 18px; }
-    #content { margin-top: 20px; }
+    /* Navigation styling */
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-    /* Image styling */
+    /* Home section styling */
     #home-section {
-      position: relative;
-      padding-left: 100px; /* Adjust space to the left of the image */
+      text-align: center;
+      padding: 20px;
     }
     #home-section img {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 120px; /* Adjust the size of your image */
+      width: 180px; /* Increased image size */
       height: auto;
-      border-radius: 50%; /* Make the image circular */
-      border: 3px solid white; /* Optional, gives a smooth blend effect */
+      border-radius: 50%;
+      border: 3px solid white;
+      display: block;
+      margin: 0 auto 20px; /* Center image and add margin below */
+    }
+
+    /* Projects list styling */
+    #projects-list {
+      list-style: none; /* Remove bullet points */
+      padding: 0;
+    }
+    #projects-list li {
+      margin-bottom: 15px;
+    }
+    /* Style project links to appear as plain text in larger font */
+    #projects-list .project-link {
+      font-size: 24px;
+      color: inherit; /* Inherit the parent color */
+      text-decoration: none; /* Remove underline */
+      cursor: pointer;
+    }
+
+    /* Project description styling */
+    #project-content p {
+      font-family: 'Georgia', serif;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -46,8 +87,9 @@
       <div id="home-section">
         <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu">
         <h1>Welcome</h1>
-        <p>Welcome to My Data Science Journey!
-          Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence. 
+        <p>
+          Welcome to My Data Science Journey!<br>
+          Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
           Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
           Join me as I dive deep into data-driven solutions that drive change, enhance automation, and push the boundaries of what's possible!
         </p>
@@ -57,7 +99,7 @@
     <section class="tabs__tab" id="tab_2">
       <h1>Projects</h1>
       <ul id="projects-list">
-        <!-- Updated project links with hash URLs -->
+        <!-- Project titles styled as plain text -->
         <li><a href="#/projects/predictive-maintenance" class="project-link" data-project="project1">Predictive Maintenance</a></li>
         <li><a href="#/projects/customer-segmentation" class="project-link" data-project="project2">Customer Segmentation</a></li>
         <li><a href="#/projects/academic-chatbot" class="project-link" data-project="project3">Academic Chatbot</a></li>
@@ -72,7 +114,6 @@
     <section class="tabs__tab" id="tab_3">
       <h1>Publications</h1>
       <ul id="publications-list">
-        <!-- You can choose to update these links with hash URLs if needed -->
         <li><a href="#/publications/deep-learning-healthcare" class="publication-link" data-publication="pub1">Deep Learning for Healthcare</a></li>
         <li><a href="#/publications/ai-financial-markets" class="publication-link" data-publication="pub2">AI in Financial Markets</a></li>
         <li><a href="#/publications/autonomous-systems" class="publication-link" data-publication="pub3">Autonomous Systems Research</a></li>
@@ -120,10 +161,10 @@
       // Function to load project details
       function loadProject(projectId) {
         const projectData = {
-          "project1": "<h2>Predictive Maintenance</h2><p>Real-time sensor data predicts failures before they occur.</p>",
-          "project2": "<h2>Customer Segmentation</h2><p>Clustering algorithms identify different customer behavior patterns.</p>",
-          "project3": "<h2>Academic Chatbot</h2><p>NLP models assist students with academic queries.</p>",
-          "project4": "<h2>Healthcare Image Classification</h2><p>Deep learning applied to medical images for cancer detection.</p>",
+          "project1": "<h2>Predictive Maintenance</h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
+          "project2": "<h2>Customer Segmentation</h2><p class='project-description'>Clustering algorithms identify different customer behavior patterns.</p>",
+          "project3": "<h2>Academic Chatbot</h2><p class='project-description'>NLP models assist students with academic queries.</p>",
+          "project4": "<h2>Healthcare Image Classification</h2><p class='project-description'>Deep learning applied to medical images for cancer detection.</p>",
         };
         projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
         setActiveTab("tab_project");
@@ -145,7 +186,6 @@
       document.querySelectorAll(".tab-link").forEach(link => {
         link.addEventListener("click", event => {
           event.preventDefault();
-          // Change the hash based on the link's href value
           window.location.hash = link.getAttribute("href");
         });
       });
@@ -169,14 +209,11 @@
       // Function to handle hash-based routing
       function handleRouting() {
         const hash = window.location.hash || "#/";
-        // Default to home if hash is empty or "#/"
         if (hash === "#/" || hash === "#") {
           setActiveTab("tab_1");
           return;
         }
-        // Check for specific routes
         if (hash.startsWith("#/projects")) {
-          // If hash indicates a specific project
           if (hash.includes("predictive-maintenance")) {
             loadProject("project1");
           } else if (hash.includes("customer-segmentation")) {
@@ -186,11 +223,9 @@
           } else if (hash.includes("healthcare-classification")) {
             loadProject("project4");
           } else {
-            // Otherwise, show the projects list
             setActiveTab("tab_2");
           }
         } else if (hash.startsWith("#/publications")) {
-          // If hash indicates a specific publication
           if (hash.includes("deep-learning-healthcare")) {
             loadPublication("pub1");
           } else if (hash.includes("ai-financial-markets")) {
@@ -200,20 +235,16 @@
           } else if (hash.includes("nlp-education")) {
             loadPublication("pub4");
           } else {
-            // Otherwise, show the publications list
             setActiveTab("tab_3");
           }
         } else if (hash.startsWith("#/stories")) {
           setActiveTab("tab_4");
         } else {
-          // Fallback: show home tab
           setActiveTab("tab_1");
         }
       }
 
-      // Listen for changes in the hash
       window.addEventListener("hashchange", handleRouting);
-      // Handle the route on initial page load
       handleRouting();
     });
   </script>
