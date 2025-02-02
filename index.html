@@ -29,29 +29,44 @@
 
         <div class="tabs__tab" id="tab_2" data-tab-info>
             <h1>Projects</h1>
-            <div class="project" onclick="toggleProject('project1')">
-                <div class="project-heading">Predictive Maintenance using Machine Learning</div>
-                <div id="project1" class="project-description" style="display: none;">
-                    <p>This project leverages real-time sensor data to predict equipment failures before they happen, ensuring increased operational efficiency and reducing downtime.</p>
+            <div id="projects-list">
+                <div class="project" onclick="openProject('project1')">
+                    <div class="project-heading">Predictive Maintenance using Machine Learning</div>
+                </div>
+                <div class="project" onclick="openProject('project2')">
+                    <div class="project-heading">Customer Segmentation Analysis</div>
+                </div>
+                <div class="project" onclick="openProject('project3')">
+                    <div class="project-heading">Automated Chatbot for Academic Support</div>
+                </div>
+                <div class="project" onclick="openProject('project4')">
+                    <div class="project-heading">Healthcare Image Classification</div>
                 </div>
             </div>
-            <div class="project" onclick="toggleProject('project2')">
-                <div class="project-heading">Customer Segmentation Analysis</div>
-                <div id="project2" class="project-description" style="display: none;">
-                    <p>In this project, clustering algorithms were used to identify different customer behavior patterns, enhancing targeted marketing strategies.</p>
-                </div>
+
+            <!-- Individual Project Details (Hidden initially) -->
+            <div id="project1-content" class="project-content" style="display: none;">
+                <button class="back-button" onclick="backToProjects()">Back to Projects</button>
+                <h2>Predictive Maintenance using Machine Learning</h2>
+                <p>This project leverages real-time sensor data to predict equipment failures before they happen, ensuring increased operational efficiency and reducing downtime.</p>
             </div>
-            <div class="project" onclick="toggleProject('project3')">
-                <div class="project-heading">Automated Chatbot for Academic Support</div>
-                <div id="project3" class="project-description" style="display: none;">
-                    <p>We designed a chatbot using NLP models to assist students with academic queries, providing real-time support and streamlining academic assistance.</p>
-                </div>
+
+            <div id="project2-content" class="project-content" style="display: none;">
+                <button class="back-button" onclick="backToProjects()">Back to Projects</button>
+                <h2>Customer Segmentation Analysis</h2>
+                <p>In this project, clustering algorithms were used to identify different customer behavior patterns, enhancing targeted marketing strategies.</p>
             </div>
-            <div class="project" onclick="toggleProject('project4')">
-                <div class="project-heading">Healthcare Image Classification</div>
-                <div id="project4" class="project-description" style="display: none;">
-                    <p>Deep learning techniques were applied to medical images for cancer detection, aiming for early diagnosis and better treatment outcomes.</p>
-                </div>
+
+            <div id="project3-content" class="project-content" style="display: none;">
+                <button class="back-button" onclick="backToProjects()">Back to Projects</button>
+                <h2>Automated Chatbot for Academic Support</h2>
+                <p>We designed a chatbot using NLP models to assist students with academic queries, providing real-time support and streamlining academic assistance.</p>
+            </div>
+
+            <div id="project4-content" class="project-content" style="display: none;">
+                <button class="back-button" onclick="backToProjects()">Back to Projects</button>
+                <h2>Healthcare Image Classification</h2>
+                <p>Deep learning techniques were applied to medical images for cancer detection, aiming for early diagnosis and better treatment outcomes.</p>
             </div>
         </div>
 
@@ -94,13 +109,19 @@
             });
         });
 
-        function toggleProject(projectId) {
-            const projectDescription = document.getElementById(projectId);
-            if (projectDescription.style.display === "none") {
-                projectDescription.style.display = "block";
-            } else {
-                projectDescription.style.display = "none";
-            }
+        function openProject(projectId) {
+            // Hide the list of projects
+            document.getElementById('projects-list').style.display = 'none';
+            // Show the selected project content
+            document.getElementById(`${projectId}-content`).style.display = 'block';
+        }
+
+        function backToProjects() {
+            // Show the list of projects again
+            document.getElementById('projects-list').style.display = 'block';
+            // Hide all project details
+            const projectContents = document.querySelectorAll('.project-content');
+            projectContents.forEach(content => content.style.display = 'none');
         }
     </script>
 </body>
