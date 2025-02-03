@@ -6,10 +6,15 @@
   <title>Home | Pradeep Bolleddu</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Prevent horizontal scrolling */
+    html, body {
+      overflow-x: hidden;
+    }
+
     /* General Tabs styling */
     .tabs__tab {
       display: none;
-      width: 100vw;
+      width: 100%;  /* Change from 100vw to 100% */
       min-height: 100vh;
       padding: 20px;
       box-sizing: border-box;
@@ -17,6 +22,25 @@
     }
     .tabs__tab.active {
       display: block;
+    }
+
+    /* Navigation styling */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li {
+      margin: 0 8px; /* reduced gap between tabs */
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      padding: 8px 12px;
+      transition: border-bottom 0.3s;
     }
 
     /* Navigation styling */
