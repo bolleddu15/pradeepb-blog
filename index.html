@@ -281,58 +281,40 @@
         });
       }
 
-// Function to load project details
-function loadProject(projectId) {
-  const projectData = {
-    "project1": "<h2>Predictive Maintenance</h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
- "project2": "<h2Customer Segmentation></h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
-    "project3": "<h2>Academic Chatbot</h2><p class='project-description'>NLP models assist students with academic queries.</p>",
-    "project4": `<h2>Healthcare Image Classification</h2>
-      <video controls width="600">
-        <source src="https://github.com/bolleddu15/pradeepb-blog/blob/main/neural%20networks%20video.mp4?raw=true" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="project-description">
-        <h3>Problem Statement:</h3>
-        <p>In the realm of medical diagnostics, particularly oncology, the early detection of lung cancer is paramount to improving survival rates. However, traditional diagnostic methods, heavily reliant on radiologists, often face limitations in accuracy and scalability. This is particularly evident in resource-constrained environments where radiologists are overburdened, and time is a critical factor. The challenge lies not just in diagnosis, but in ensuring that the process is both accurate and efficient. The goal of this project was to build an AI-powered system capable of detecting lung cancer at early stages using chest X-rays, thus enhancing diagnostic speed, reliability, and ultimately, saving lives.</p>
-        
-        <h3>Methodology & Technical Framework:</h3>
-        <p>To address this challenge, we turned to deep learning, specifically Convolutional Neural Networks (CNNs), which have been proven to be highly effective for image classification tasks. Given the complexity of medical imaging, a deep learning model was trained to identify patterns within chest X-rays that would be difficult for the human eye to detect, yet are critical in the early diagnosis of cancer. A key aspect of our approach was leveraging transfer learning. We chose ResNet-50, a pre-trained deep learning architecture, to benefit from its well-established ability to generalize from large-scale image datasets, such as ImageNet. By fine-tuning ResNet-50 on our specialized medical dataset, we enhanced its ability to recognize subtle anomalies in lung X-rays that indicate the presence of tumors. Additionally, we utilized image augmentation techniques such as rotation, scaling, and flipping to artificially increase the diversity of our training data, addressing the issue of limited labeled medical data. This step was crucial in ensuring our model was robust and could handle various imaging conditions.</p>
-        
-        <h3>Project Goals & Objectives:</h3>
-        <ul>
-          <li>Achieve a model accuracy of over 90% in detecting cancerous nodules.</li>
-          <li>Minimize false positives and false negatives, ensuring that both diagnostic speed and reliability were optimized.</li>
-          <li>Ensure the model could be deployed efficiently in real-time clinical settings, offering support to radiologists without disrupting existing workflows.</li>
-        </ul>
-        
-        <h3>End-to-End Process:</h3>
-        <p><strong>Data Collection & Preprocessing:</strong> The dataset consisted of over 50,000 labeled chest X-ray images sourced from multiple hospitals, ensuring diversity in terms of patient demographics and imaging conditions. The data was resized and normalized for model training.</p>
-        <p><strong>Model Selection & Training:</strong> ResNet-50 was chosen for its deep residual learning capabilities. The model was trained with the Adam optimizer, with early stopping to prevent overfitting.</p>
-        <p><strong>Hyperparameter Tuning & Model Evaluation:</strong> A grid search method and cross-validation were used for tuning hyperparameters, and the final model was evaluated using accuracy, precision, recall, and F1-score.</p>
-        <p><strong>Deployment & Integration:</strong> The model was deployed on a cloud platform using TensorFlow Serving, integrated with a web-based front end for real-time clinical use via an API.</p>
-        
-        <h3>Solutions and Achievements:</h3>
-        <p>The final model exceeded expectations, achieving a diagnostic accuracy of 92%, surpassing the initial goal of 90%. It demonstrated a significant reduction in diagnostic time, processing X-ray images in under a minute compared to the average 10-15 minutes required by radiologists. Moreover, the model successfully minimized false positives and false negatives, with precision and recall rates of 91% and 93%, respectively. In clinical tests, the model assisted radiologists in identifying lung cancer in earlier stages, offering support in diagnosing hard-to-spot tumors that could easily be overlooked. The deployment of the model resulted in a 30% reduction in the diagnostic turnaround time, allowing for faster decision-making in patient care. Integration of the AI model into the clinical workflow was seamless, and initial feedback from healthcare professionals indicated high levels of trust in the tool, particularly in terms of enhancing diagnostic confidence. Full interpretability of the model’s decisions was maintained using the Grad-CAM technique to visualize the regions of the X-ray that influenced its predictions.</p>
-        
-        <h3>Results & Impact:</h3>
-        <ul>
-          <li>Accuracy: 92%</li>
-          <li>Precision: 91%</li>
-          <li>Recall: 93%</li>
-          <li>F1-Score: 92%</li>
-          <li>Diagnostic Time Reduction: 30%</li>
-          <li>Model Integration: Seamless with existing hospital infrastructure, providing real-time predictions.</li>
-        </ul>
-        
-        <h3>Lessons Learned & Future Scope:</h3>
-        <p>While the project was a success, key lessons were learned. Data quality remains a critical challenge in medical imaging, and although our model performed well on the current dataset, future work will focus on expanding the dataset to include more diverse imaging conditions and patients from various geographical regions. Additionally, exploring multi-modal data (combining imaging with patient history) could further enhance diagnostic precision. The next phase will aim to scale the model to detect other types of cancers and improve robustness in real-world, non-ideal conditions, such as images captured with low-quality equipment.</p>
-      </div>`
-  };
-  projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
-  setActiveTab("tab_project");
-}
+   // Function to remove active class and set the active tab
+      function setActiveTab(tabId) {
+        tabContents.forEach(tab => tab.classList.remove("active"));
+        const targetTab = document.getElementById(tabId);
+        if (targetTab) {
+          targetTab.classList.add("active");
+        }
+        // Update active class on navigation links (only for main tabs)
+        navLinks.forEach(link => {
+          const dataTab = link.getAttribute("data-tab");
+          if (dataTab === tabId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
 
+      // Function to load project details
+      function loadProject(projectId) {
+        const projectData = {
+          "project1": "<h2>Predictive Maintenance</h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
+          "project2": "<h2>Customer Segmentation</h2><p class='project-description'>Clustering algorithms identify different customer behavior patterns.</p>",
+          "project3": "<h2>Academic Chatbot</h2><p class='project-description'>NLP models assist students with academic queries.</p>",
+          "project4": `<h2>Healthcare Image Classification</h2>
+                      <video controls width="600">
+                        <source src="https://github.com/bolleddu15/pradeepb-blog/blob/main/neural%20networks%20video.mp4?raw=true" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                      <p class='project-description'>Deep learning applied to medical images for cancer detection.</p>`
+        };
+        projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
+        setActiveTab("tab_project");
+      }
 
       // Function to load publication details
       function loadPublication(publicationId) {
