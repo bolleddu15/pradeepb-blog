@@ -411,7 +411,8 @@ function loadProject(projectId) {
     `
   };
 
-  document.getElementById("projectContent").innerHTML = projectData[projectId];
+  // Insert the selected project content into the HTML element
+  document.getElementById("projectContent").innerHTML = projectData[projectId] || "<p>No project found.</p>";
 }
 
 
