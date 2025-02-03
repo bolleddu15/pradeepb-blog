@@ -285,7 +285,43 @@
 function loadProject(projectId) {
   const projectData = {
     "project1": "<h2>Predictive Maintenance</h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
-    "project2": "<h2>Customer Segmentation</h2><p class='project-description'>Clustering algorithms identify different customer behavior patterns.</p>",
+      "project2": `<h2>Customer Segmentation</h2>
+      <p class='project-description'>
+        <strong>Deciphering Customer Archetypes: A Data-Driven Clustering Approach for Intelligent Segmentation</strong><br><br>
+        <strong>Problem Statement:</strong> 
+        Traditional segmentation techniques oversimplify consumer behavior, leading to ineffective marketing strategies. This project applies clustering algorithms to uncover hidden patterns in customer interactions, enabling data-driven decision-making.<br><br>
+        
+        <strong>Mathematical Foundations:</strong> 
+        Clustering partitions a dataset X = {x₁, x₂, ..., xₙ} into k groups, ensuring high intra-cluster similarity and low inter-cluster similarity. Formally, clusters {C₁, C₂, ..., Cₖ} satisfy: <br>
+        ∪ Cᵢ = X and Cᵢ ∩ Cⱼ = ∅ for i ≠ j.<br><br>
+        
+        <strong>Key Clustering Algorithms:</strong> <br>
+        - <strong>K-Means:</strong> Minimizes intra-cluster variance using centroids.<br>
+        - <strong>DBSCAN:</strong> Groups points based on density, identifying noise/outliers.<br>
+        - <strong>Gaussian Mixture Model (GMM):</strong> Uses probabilistic distributions and EM algorithm for clustering.<br><br>
+
+        <strong>Methodology:</strong> <br>
+        - Data acquisition and preprocessing with Min-Max normalization.<br>
+        - Dimensionality reduction via PCA.<br>
+        - Implemented K-Means, DBSCAN, and GMM to segment customer data.<br>
+        - Evaluated clusters using the Elbow Method and Silhouette Score.<br>
+        - Visualized results with t-SNE and PCA.<br><br>
+
+        <strong>Findings:</strong> <br>
+        Identified four key customer segments:<br>
+        - <strong>Value Seekers:</strong> Discount-driven shoppers.<br>
+        - <strong>Brand Loyalists:</strong> Frequent buyers engaged in loyalty programs.<br>
+        - <strong>Impulse Shoppers:</strong> Unpredictable but frequent buyers.<br>
+        - <strong>Occasional Buyers:</strong> High-value but infrequent shoppers.<br><br>
+
+        <strong>Business Impact:</strong> <br>
+        - Enabled hyper-personalized marketing strategies.<br>
+        - Improved product positioning and customer retention.<br>
+        - Provided data-driven insights for adaptive segmentation.<br><br>
+
+        <strong>Future Work:</strong> 
+        Incorporating deep learning techniques like autoencoders and self-organizing maps (SOM) for enhanced segmentation precision.
+      </p>",
     "project3": "<h2>Academic Chatbot</h2><p class='project-description'>NLP models assist students with academic queries.</p>",
     "project4": `<h2>Healthcare Image Classification</h2>
       <video controls width="600">
