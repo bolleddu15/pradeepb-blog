@@ -373,13 +373,53 @@ function loadProject(projectId) {
                 "<h3>Challenges</h3>" +
                 "<p class='project-description'>The primary challenge was choosing the optimal number of clusters (K). The elbow method helped in this process, but in practice, customer segments can sometimes overlap, making it difficult to draw clear boundaries.</p>" +
                 "<h3>Conclusion</h3>" +
-                "<p class='project-description'>Customer Segmentation allows businesses to make smarter decisions, driving revenue and customer loyalty. By understanding the unique characteristics of each segment, companies can offer targeted products, personalized marketing, and enhance customer experiences.</p>"
+                "<p class='project-description'>Customer Segmentation allows businesses to make smarter decisions, driving revenue and customer loyalty. By understanding the unique characteristics of each segment, companies can offer targeted products, personalized marketing, and enhance customer experiences.</p>",
+      "project3": `<h2>Academic Chatbot</h2>
+                  <p class='project-description'>
+                    The Academic Chatbot is engineered to serve as an intelligent assistant for academic institutions. By merging Retrieval-Augmented Generation (RAG) with Large Language Models (LLMs), the chatbot not only understands complex natural language queries but also dynamically retrieves relevant academic content to produce contextually enriched responses.
+                    <br><br>
+                    <strong>Technical Components:</strong><br>
+                    <strong>Retrieval-Augmented Generation (RAG):</strong> RAG is an innovative approach that synergizes retrieval mechanisms with generative models. It enables the system to reference external documents and databases during response generation, thereby enhancing factual correctness and context-awareness.<br>
+                    <strong>Retriever Module:</strong> Given a query <i>q</i>, the retriever identifies a subset of relevant documents <i>Dq</i> from a large corpus <i>D</i>. The retriever often employs vector representations and similarity search algorithms (e.g., cosine similarity over embeddings) to rank documents.<br>
+                    <strong>Generator Module:</strong> The generator conditions on both the query <i>q</i> and the retrieved documents <i>Dq</i> to produce a coherent answer <i>r</i>. This process uses deep sequence-to-sequence models (such as GPT or T5) fine-tuned on domain-specific data.<br>
+                    <strong>Large Language Models (LLMs):</strong> LLMs are pre-trained on vast datasets and are capable of capturing semantic nuances and complex linguistic structures. In this project, LLMs provide the backbone for natural language understanding and generation. Their capability to generalize over diverse contexts is augmented by the retrieval component.<br>
+                    <strong>Mathematical Formulation:</strong> The end-to-end operation of the RAG system can be seen as an optimization problem where we aim to maximize the likelihood of generating a correct response <i>r</i> given a query <i>q</i>.<br><br>
+                    <strong>Implementation Details:</strong><br>
+                    <strong>Data Sources:</strong> The system integrates academic databases, course catalogs, research papers, and FAQs to build a comprehensive knowledge base.<br>
+                    <strong>Frameworks & Libraries:</strong> Python, Hugging Face Transformers, Faiss.<br>
+                    <strong>Training Strategy:</strong> Pre-training on large datasets followed by fine-tuning using domain-specific academic content.<br><br>
+                    <strong>Expert Considerations:</strong><br>
+                    <strong>Scalability:</strong> The system is designed for scalability, with modular components that can be independently updated as new academic content becomes available.<br>
+                    <strong>Evaluation Metrics:</strong> BLEU, ROUGE, and human-in-the-loop feedback.
+                  </p>`,
+    "project4": `<h2>Healthcare Image Classification</h2>
+                  <video controls width="600">
+                    <source src="https://github.com/bolleddu15/pradeepb-blog/blob/main/neural%20networks%20video.mp4?raw=true" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p class='project-description'>
+                    The Healthcare Image Classification project aims to assist radiologists by automating the detection and classification of diseases from medical images. Primarily focusing on chest X-rays, the system utilizes Convolutional Neural Networks (CNNs) to identify patterns that indicate conditions such as lung cancer and pneumonia.
+                    <br><br>
+                    <strong>Technical Components:</strong><br>
+                    <strong>Image Classification Using CNNs:</strong> CNNs are the cornerstone of modern image analysis due to their ability to learn spatial hierarchies through convolutional filters. The architecture typically involves several layers:<br>
+                    <strong>Convolutional Layers:</strong> These layers apply learnable filters to extract local features.<br>
+                    <strong>Pooling Layers:</strong> Pooling reduces the spatial dimensions, retaining essential information while minimizing computational load.<br>
+                    <strong>Fully Connected Layers:</strong> These layers integrate features extracted by the convolutional layers to produce a final classification output.<br>
+                    <strong>Loss Function and Optimization:</strong> Cross-entropy loss is employed for multi-class classification.<br><br>
+                    <strong>Implementation Details:</strong><br>
+                    <strong>Data Pipeline:</strong> Curated dataset of chest X-rays with annotations, using data augmentation techniques.<br>
+                    <strong>Frameworks & Libraries:</strong> TensorFlow, PyTorch, Keras, OpenCV.<br>
+                    <strong>Training Strategy:</strong> Cross-validation and test set evaluation with regularization techniques such as dropout and batch normalization.<br><br>
+                    <strong>Expert Considerations:</strong><br>
+                    <strong>Interpretability:</strong> Grad-CAM is integrated to visualize model attention.<br>
+                    <strong>Deployment:</strong> Designed for integration into hospital systems, ensuring performance and regulatory standards.<br>
+                    <strong>Performance Metrics:</strong> Accuracy, precision, recall, F1-score, and AUC.
+                  </p>`
   };
-
-projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
-        setActiveTab("tab_project");
-      }
-
+  projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
+  setActiveTab("tab_project");
+}
+  
 
 
       // Function to load publication details
