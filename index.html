@@ -221,10 +221,10 @@
     <section class="tabs__tab" id="tab_3">
       <h1>Publications</h1>
       <ul id="publications-list">
-        <li><a href="#/publications/deep-learning-healthcare" class="publication-link" data-publication="pub1">Deep Learning for Healthcare</a></li>
-        <li><a href="#/publications/ai-financial-markets" class="publication-link" data-publication="pub2">AI in Financial Markets</a></li>
-        <li><a href="#/publications/autonomous-systems" class="publication-link" data-publication="pub3">Autonomous Systems Research</a></li>
-        <li><a href="#/publications/nlp-education" class="publication-link" data-publication="pub4">NLP in Education</a></li>
+        <li><a href="#/publications/An Analysis of Clustering Techniques" class="publication-link" data-publication="pub1">Different Types of Clustering algorithms discussed in this paper.</a></li>
+        <li><a href="#/publications/Hadoop: An Overview of Data security" class="publication-link" data-publication="pub2">AI in Financial Markets</a></li>
+        <li><a href="#/publications/Neuro-Symbolic Large Action Models: A Unified Theoretical Framework for Generalizable AI Across Vision, Language, and Robotics" class="publication-link" data-publication="pub3">Autonomous Systems Research</a></li>
+        <li><a href="#/publications/Self-Sustaining Artificial Generative Systems: Exploring Autonomous Meta-Learning and Cross-Domain Knowledge Fusion." class="publication-link" data-publication="pub4">NLP in Education</a></li>
       </ul>
     </section>
 
@@ -425,10 +425,10 @@ function loadProject(projectId) {
       // Function to load publication details
       function loadPublication(publicationId) {
         const publicationData = {
-          "pub1": "<h2>Deep Learning for Healthcare</h2><p class='project-description'>This research explores the use of deep learning models in predicting health outcomes.</p>",
-          "pub2": "<h2>AI in Financial Markets</h2><p class='project-description'>Application of AI algorithms in stock price prediction and financial decision-making.</p>",
-          "pub3": "<h2>Autonomous Systems Research</h2><p class='project-description'>Investigating the latest advancements in autonomous systems and robotics.</p>",
-          "pub4": "<h2>NLP in Education</h2><p class='project-description'>Exploring how Natural Language Processing can revolutionize educational tools.</p>"
+          "pub1": "<h2> An Analysis of Clustering Techniques</h2><p class='project-description'>This research explores the Different kinds of Clustering algorithms.</p>",
+          "pub2": "<h2> Hadoop: An Overview of Data security.</h2><p class='project-description'>Big data engineering and Data base systems.</p>",
+          "pub3": "<h2> Neuro-Symbolic Large Action Models: A Unified Theoretical Framework for Generalizable AI Across Vision, Language, and Robotics</h2><p class='project-description'>Investigating the latest advancements in autonomous systems and robotics.</p>",
+          "pub4": "<h2> Self-Sustaining Artificial Generative Systems: Exploring Autonomous Meta-Learning and Cross-Domain Knowledge Fusion.</h2><p class='project-description'>Exploring how AI Systems can influence the Meta-learning.</p>"
         };
         publicationContent.innerHTML = publicationData[publicationId] || "<p>Publication not found.</p>";
         setActiveTab("tab_publication");
