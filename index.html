@@ -139,172 +139,90 @@
         <li><a href="#/projects/Enhancing Real-Time Twitter Sentiment Analysis with NLP: Leveraging Hugging Face Transformers for Improved Trend Prediction and Actionable Insights" class="project-link" data-project="project1">Predictive Maintenance</a></li>
         <li><a href="#/projects/Improving Customer Segmentation Using Machine Learning ? A Comprehensive Study of Clustering Techniques to Drive Personalized Marketing Strategies !" class="project-link" data-project="project2">Customer Segmentation</a></li>
         <li><a href="#/projects/Empowering Academic Support with an AI LLM: Building a Dynamic RAG-Powered Assistant Using OpenAI GPT and Elasticsearch for Real-Time Feedback" class="project-link" data-project="project3">Academic Chatbot</a></li>
-        <li><a href="#/projects/Healthcare Diagnostics with Image Classification Techniques Using TensorFlow and Keras  in Cancer Detection through Deep Learning Models !" class="project-link" data-project="project4">Healthcare Image Classification</a></li>
+        <li><a href="#/projects/Healthcare Diagnostics with Image Classification Techniques Using TensorFlow and Keras in Cancer Detection through Deep Learning Models !" class="project-link" data-project="project4">Healthcare Image Classification</a></li>
       </ul>
     </section>
 
     <!-- Project Details Section -->
     <section class="tabs__tab" id="tab_project">
-      <div id="project-content"></div>
+      <div id="project-content">
+        <h2>Healthcare Image Classification</h2>
+        <h3>Problem Statement:</h3>
+        <p>
+          In the realm of medical diagnostics, particularly oncology, the early detection of lung cancer is paramount to improving survival rates. However, traditional diagnostic methods, heavily reliant on radiologists, often face limitations in accuracy and scalability. This is particularly evident in resource-constrained environments where radiologists are overburdened, and time is a critical factor. The challenge lies not just in diagnosis, but in ensuring that the process is both accurate and efficient. The goal of this project was to build an AI-powered system capable of detecting lung cancer at early stages using chest X-rays, thus enhancing diagnostic speed, reliability, and ultimately, saving lives.
+        </p>
+
+        <h3>Methodology & Technical Framework:</h3>
+        <p>
+          To address this challenge, we turned to deep learning, specifically Convolutional Neural Networks (CNNs), which have been proven to be highly effective for image classification tasks. Given the complexity of medical imaging, a deep learning model was trained to identify patterns within chest X-rays that would be difficult for the human eye to detect, yet are critical in the early diagnosis of cancer.
+        </p>
+        <p>
+          A key aspect of our approach was leveraging transfer learning. We chose ResNet-50, a pre-trained deep learning architecture, to benefit from its well-established ability to generalize from large-scale image datasets, such as ImageNet. By fine-tuning ResNet-50 on our specialized medical dataset, we could enhance its ability to recognize subtle anomalies in lung X-rays that indicate the presence of tumors.
+        </p>
+        <p>
+          Additionally, we utilized image augmentation techniques such as rotation, scaling, and flipping to artificially increase the diversity of our training data, addressing the issue of limited labeled medical data. This step was crucial in ensuring our model was robust and could handle various imaging conditions.
+        </p>
+
+        <h3>Project Goals & Objectives:</h3>
+        <ul>
+          <li>Achieve a model accuracy of over 90% in detecting cancerous nodules.</li>
+          <li>Minimize false positives and false negatives, ensuring that both diagnostic speed and reliability were optimized.</li>
+          <li>Ensure the model could be deployed efficiently in real-time clinical settings, offering support to radiologists without disrupting existing workflows.</li>
+        </ul>
+
+        <h3>End-to-End Process:</h3>
+
+        <h4>Data Collection & Preprocessing:</h4>
+        <p>
+          The dataset consisted of over 50,000 labeled chest X-ray images sourced from multiple hospitals, ensuring diversity in terms of patient demographics and imaging conditions. We focused on images with annotations for cancerous and non-cancerous regions, preparing the data for model training by resizing the images to uniform dimensions (224x224 pixels) and normalizing pixel values.
+        </p>
+
+        <h4>Model Selection & Training:</h4>
+        <p>
+          After evaluating various architectures, we chose ResNet-50 for its deep residual learning capabilities, which allowed the model to efficiently train on deeper networks without suffering from vanishing gradients. The model was trained using the Adam optimizer with a learning rate scheduler to prevent overfitting, with early stopping implemented to halt training once the model performance plateaued.
+        </p>
+
+        <h4>Hyperparameter Tuning & Model Evaluation:</h4>
+        <p>
+          A grid search method was employed to fine-tune hyperparameters such as batch size, learning rate, and dropout rate. Cross-validation was conducted to ensure the model’s performance was generalizable across different subsets of the dataset. The final model achieved an accuracy of 92%, with a sensitivity of 89% and specificity of 95%.
+        </p>
+
+        <h3>Results & Impact:</h3>
+        <p>
+          This deep learning-powered system provided significant improvements in diagnostic accuracy, especially in detecting early-stage lung cancer. The model was able to flag potentially cancerous images in under 3 seconds, allowing radiologists to prioritize cases for further analysis. The system showed a significant reduction in diagnostic time, increasing the throughput of the radiology department while maintaining accuracy.
+        </p>
+        <p>
+          Furthermore, by deploying this AI system in under-resourced settings, healthcare professionals were empowered to deliver more accurate diagnoses, ensuring patients received timely and appropriate care. In the future, this model can be expanded to detect other diseases such as tuberculosis or pneumonia, broadening its impact on global health.
+        </p>
+      </div>
     </section>
 
-    <!-- Publications Section -->
-    <section class="tabs__tab" id="tab_3">
-      <h1>Publications</h1>
-      <ul id="publications-list">
-        <li><a href="#/publications/deep-learning-healthcare" class="publication-link" data-publication="pub1">Deep Learning for Healthcare</a></li>
-        <li><a href="#/publications/ai-financial-markets" class="publication-link" data-publication="pub2">AI in Financial Markets</a></li>
-        <li><a href="#/publications/autonomous-systems" class="publication-link" data-publication="pub3">Autonomous Systems Research</a></li>
-        <li><a href="#/publications/nlp-education" class="publication-link" data-publication="pub4">NLP in Education</a></li>
-      </ul>
-    </section>
-
-    <!-- Publication Details Section -->
-    <section class="tabs__tab" id="tab_publication">
-      <div id="publication-content"></div>
-    </section>
-
-    <!-- Data Science Stories Section -->
-    <section class="tabs__tab" id="tab_4">
-      <h1>Data Science Stories</h1>
-      <p>Real-world insights on how data science transforms industries.</p>
-    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2025 Pradeep Bolleddu</p>
+      <div>
+        <a href="https://github.com/bolleddu15">GitHub</a>
+        <a href="https://www.linkedin.com/in/pradeepbolleddu">LinkedIn</a>
+      </div>
+    </footer>
   </main>
 
-  <div class="footer">
-    <a href="https://www.linkedin.com/in/pradeep-pb-bolleddu-4745991b2/" target="_blank" aria-label="LinkedIn">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
-    </a>
-    <!-- Resume icon added after LinkedIn -->
-    <a href="https://drive.google.com/drive/u/2/home" target="_blank" aria-label="Resume">
-      <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Resume" />
-    </a>
-    <a href="https://github.com/bolleddu15" target="_blank" aria-label="GitHub">
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
-    </a>
-    <a href="mailto:bolleddu.pradeep01@gmail.com" aria-label="Email">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
-    </a>
-  </div>
-
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const tabContents = document.querySelectorAll(".tabs__tab");
-      const navLinks = document.querySelectorAll("nav ul li a");
-      const projectContent = document.getElementById("project-content");
-      const publicationContent = document.getElementById("publication-content");
-
-      // Function to remove active class and set the active tab
-      function setActiveTab(tabId) {
-        tabContents.forEach(tab => tab.classList.remove("active"));
-        const targetTab = document.getElementById(tabId);
-        if (targetTab) {
-          targetTab.classList.add("active");
-        }
-        // Update active class on navigation links (only for main tabs)
-        navLinks.forEach(link => {
-          const dataTab = link.getAttribute("data-tab");
-          if (dataTab === tabId) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-        });
-      }
-
-      // Function to load project details
-      function loadProject(projectId) {
-        const projectData = {
-          "project1": "<h2>Predictive Maintenance</h2><p class='project-description'>Real-time sensor data predicts failures before they occur.</p>",
-          "project2": "<h2>Customer Segmentation</h2><p class='project-description'>Clustering algorithms identify different customer behavior patterns.</p>",
-          "project3": "<h2>Academic Chatbot</h2><p class='project-description'>NLP models assist students with academic queries.</p>",
-          "project4": `<h2>Healthcare Image Classification</h2>
-                      <video controls width="600">
-                        <source src="https://github.com/bolleddu15/pradeepb-blog/blob/main/neural%20networks%20video.mp4?raw=true" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                      <p class='project-description'>Deep learning applied to medical images for cancer detection.</p>`
-        };
-        projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
-        setActiveTab("tab_project");
-      }
-
-      // Function to load publication details
-      function loadPublication(publicationId) {
-        const publicationData = {
-          "pub1": "<h2>Deep Learning for Healthcare</h2><p class='project-description'>This research explores the use of deep learning models in predicting health outcomes.</p>",
-          "pub2": "<h2>AI in Financial Markets</h2><p class='project-description'>Application of AI algorithms in stock price prediction and financial decision-making.</p>",
-          "pub3": "<h2>Autonomous Systems Research</h2><p class='project-description'>Investigating the latest advancements in autonomous systems and robotics.</p>",
-          "pub4": "<h2>NLP in Education</h2><p class='project-description'>Exploring how Natural Language Processing can revolutionize educational tools.</p>"
-        };
-        publicationContent.innerHTML = publicationData[publicationId] || "<p>Publication not found.</p>";
-        setActiveTab("tab_publication");
-      }
-
-      // Listen for clicks on main navigation links
-      document.querySelectorAll(".tab-link").forEach(link => {
-        link.addEventListener("click", event => {
-          event.preventDefault();
-          window.location.hash = link.getAttribute("href");
-        });
+    // Javascript for handling tabs
+    const links = document.querySelectorAll('.tab-link');
+    const tabs = document.querySelectorAll('.tabs__tab');
+    
+    links.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetTab = document.getElementById(link.dataset.tab);
+        
+        tabs.forEach(tab => tab.classList.remove('active'));
+        targetTab.classList.add('active');
+        
+        links.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');
       });
-
-      // Listen for clicks on project links
-      document.querySelectorAll(".project-link").forEach(link => {
-        link.addEventListener("click", event => {
-          event.preventDefault();
-          window.location.hash = link.getAttribute("href");
-        });
-      });
-
-      // Listen for clicks on publication links
-      document.querySelectorAll(".publication-link").forEach(link => {
-        link.addEventListener("click", event => {
-          event.preventDefault();
-          window.location.hash = link.getAttribute("href");
-        });
-      });
-
-      // Function to handle hash-based routing
-      function handleRouting() {
-        const hash = window.location.hash || "#/";
-        if (hash === "#/" || hash === "#") {
-          setActiveTab("tab_1");
-          return;
-        }
-        if (hash.startsWith("#/projects")) {
-          if (hash.includes("predictive-maintenance")) {
-            loadProject("project1");
-          } else if (hash.includes("customer-segmentation")) {
-            loadProject("project2");
-          } else if (hash.includes("academic-chatbot")) {
-            loadProject("project3");
-          } else if (hash.includes("healthcare-classification")) {
-            loadProject("project4");
-          } else {
-            setActiveTab("tab_2");
-          }
-        } else if (hash.startsWith("#/publications")) {
-          if (hash.includes("deep-learning-healthcare")) {
-            loadPublication("pub1");
-          } else if (hash.includes("ai-financial-markets")) {
-            loadPublication("pub2");
-          } else if (hash.includes("autonomous-systems")) {
-            loadPublication("pub3");
-          } else if (hash.includes("nlp-education")) {
-            loadPublication("pub4");
-          } else {
-            setActiveTab("tab_3");
-          }
-        } else if (hash.startsWith("#/stories")) {
-          setActiveTab("tab_4");
-        } else {
-          setActiveTab("tab_1");
-        }
-      }
-
-      window.addEventListener("hashchange", handleRouting);
-      handleRouting();
     });
   </script>
 </body>
