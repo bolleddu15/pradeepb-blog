@@ -364,35 +364,28 @@
 </body>
 </html>
 <script>
-  // Wait for the DOM to fully load before executing the script
-  document.addEventListener('DOMContentLoaded', function () {
-    // Select all the tab links
-    const tabLinks = document.querySelectorAll('.tab-link');
-    
-    // Select all the tab content sections
-    const tabs = document.querySelectorAll('.tabs__tab');
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".tabs span"); // Get all tab elements
+        const tabContents = document.querySelectorAll("[data-tab-info]"); // Get all tab content elements
 
-    // Add click event listeners to each tab link
-    tabLinks.forEach(link => {
-      link.addEventListener('click', function (event) {
-        // Prevent default link behavior
-        event.preventDefault();
+        // Add event listener to each tab
+        tabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+                // Remove 'active' class from all tabs and tab contents
+                tabs.forEach(t => t.classList.remove("active"));
+                tabContents.forEach(c => c.classList.remove("active"));
 
-        // Remove 'active' class from all tabs and links
-        tabs.forEach(tab => tab.classList.remove('active'));
-        tabLinks.forEach(link => link.classList.remove('active'));
+                // Add 'active' class to the clicked tab
+                this.classList.add("active");
 
-        // Add 'active' class to the clicked tab link
-        this.classList.add('active');
+                // Get the content related to the clicked tab using the data-tab-value attribute
+                const contentId = this.getAttribute("data-tab-value");
+                const content = document.querySelector(contentId);
 
-        // Get the target tab from the clicked link's data-tab attribute
-        const targetTabId = this.getAttribute('data-tab');
-        const targetTab = document.getElementById(targetTabId);
-
-        // Display the clicked tab and hide all other tabs
-        targetTab.classList.add('active');
-      });
+                // Show the corresponding content
+                content.classList.add("active");
+            });
+        });
     });
-  });
 </script>
 
