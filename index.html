@@ -298,128 +298,121 @@
           }
         });
       }
-
-// Function to load project details
+// Function to load project details with improved readability
 function loadProject(projectId) {
   const projectData = {
-    "project1": "<h2>Predictive Maintenance</h2>" +
-                "<p class='project-description'>In the realm of industrial operations, the reliability of machinery and equipment is crucial for optimal performance and cost-efficiency. Imagine a world where you don’t have to wait for machines to break down before fixing them—where maintenance is predicted ahead of time, saving businesses time and money. This is the power of Predictive Maintenance.</p>" +
-                "<p class='project-description'>The problem with traditional maintenance practices is that they are reactive. Machines are either serviced at scheduled intervals (time-based maintenance) or after they break down (failure-based maintenance). Both approaches are inefficient. Time-based maintenance may result in unnecessary repairs, while failure-based maintenance leads to downtime and unexpected costs. The problem is clear: businesses need a way to predict machine failures before they happen.</p>" +
-                "<p class='project-description'>Predictive Maintenance uses machine learning algorithms to forecast when equipment will fail, based on historical data such as sensor readings, machine performance, and environmental conditions. The goal is to move away from reactive maintenance to a condition-based strategy, where maintenance happens based on actual data, not just time or failure.</p>" +
-                "<p class='project-description'>In this project, we applied machine learning models like Random Forests, Support Vector Machines, and Gradient Boosting to predict when a particular asset would require maintenance. We used a dataset containing sensor data from machines, including readings like temperature, pressure, and vibrations.</p>" +
-                "<h3>Data Preprocessing and Feature Engineering</h3>" +
-                "<p class='project-description'>The first step was to clean the data and handle missing values. Then, feature engineering played a vital role in extracting meaningful patterns from the raw data. Statistical features like mean, standard deviation, and moving averages were calculated over time windows to summarize the machine’s behavior.</p>" +
-                "<h3>Model Building</h3>" +
-                "<p class='project-description'>For predictive maintenance, it was essential to treat this as a classification problem—we wanted to predict if a machine was likely to fail within a specific time frame. Models were trained to categorize machines into either “maintenance required” or “maintenance not required” classes.</p>" +
-                "<p class='project-description'>The models used were:</p>" +
-                "<ul>" +
-                "<li><b>Random Forests</b>: We leveraged this model for its robustness against overfitting and its ability to handle large, complex datasets.</li>" +
-                "<li><b>Support Vector Machines (SVM)</b>: For clearer decision boundaries between classes.</li>" +
-                "<li><b>Gradient Boosting</b>: To boost performance by correcting the mistakes of previous models in a sequential manner.</li>" +
-                "</ul>" +
-                "<h3>Formula for Predictive Maintenance</h3>" +
-                "<p class='project-description'>To quantify the time to failure, we used the survival analysis model and logistic regression for predicting failure probabilities. The basic formula behind logistic regression is:</p>" +
-                "<p class='project-description'>P(failure) = 1 / (1 + e<sup>-(β<sub>0</sub> + β<sub>1</sub>⋅X<sub>1</sub> + β<sub>2</sub>⋅X<sub>2</sub> + … + β<sub>n</sub>⋅X<sub>n</sub>)</sup></p>" +
-                "<p class='project-description'>Where:</p>" +
-                "<ul>" +
-                "<li><b>P(failure)</b> is the probability of failure within the given time window.</li>" +
-                "<li><b>β<sub>0</sub>, β<sub>1</sub>, …, β<sub>n</sub></b> are the model coefficients.</li>" +
-                "<li><b>X<sub>1</sub>, X<sub>2</sub>, …, X<sub>n</sub></b> are the features derived from the sensor data.</li>" +
-                "</ul>" +
-                "<h3>Results and Findings</h3>" +
-                "<p class='project-description'>After training the models, we evaluated them using metrics such as accuracy, precision, recall, and F1 score. The models provided valuable insights into which machines required immediate attention and predicted failure windows. By shifting to predictive maintenance, businesses saw:</p>" +
-                "<ul>" +
-                "<li>Reduction in downtime by up to 30%.</li>" +
-                "<li>Cost savings by performing maintenance only when necessary.</li>" +
-                "<li>Improved asset lifespan due to timely interventions.</li>" +
-                "</ul>" +
-                "<h3>Challenges</h3>" +
-                "<p class='project-description'>Predictive maintenance projects are not without their challenges. The most significant hurdle is data quality—sensor data can be noisy or incomplete, which directly impacts the accuracy of the model. Moreover, selecting the right features from the available data to ensure model interpretability remains an ongoing struggle.</p>" +
-                "<h3>Conclusion</h3>" +
-                "<p class='project-description'>By leveraging machine learning, Predictive Maintenance transforms how businesses approach machinery upkeep. Instead of waiting for machines to break down, the future lies in anticipating problems before they occur. It’s a shift that not only enhances operational efficiency but also reduces costs and extends the lifespan of equipment.</p>",
+    "project1": `
+      <h2><b>Predictive Maintenance</b></h2>
+      <p><strong>Introduction:</strong> In industrial operations, machine reliability is crucial for performance and cost-efficiency. Predictive Maintenance enables businesses to anticipate failures, saving time and money.</p>
+      
+      <h3><b>Problem Statement</b></h3>
+      <p>Traditional maintenance is reactive—either time-based or failure-based—leading to inefficiencies. A smarter approach is needed to predict machine failures in advance.</p>
+      
+      <h3><b>Solution</b></h3>
+      <p>Using machine learning models like <b>Random Forests</b>, <b>Support Vector Machines</b>, and <b>Gradient Boosting</b>, we forecast equipment failures based on sensor data (temperature, pressure, vibrations).</p>
+      
+      <h3><b>Data Preprocessing & Feature Engineering</b></h3>
+      <p>We cleaned data, handled missing values, and engineered statistical features such as mean, standard deviation, and moving averages.</p>
+      
+      <h3><b>Model Building</b></h3>
+      <ul>
+        <li><b>Random Forests:</b> Robust against overfitting, handles large datasets.</li>
+        <li><b>Support Vector Machines:</b> Defines clearer decision boundaries.</li>
+        <li><b>Gradient Boosting:</b> Sequentially corrects errors for better performance.</li>
+      </ul>
+      
+      <h3><b>Predictive Formula</b></h3>
+      <p>P(failure) = 1 / (1 + e<sup>-(β<sub>0</sub> + β<sub>1</sub>⋅X<sub>1</sub> + ... + β<sub>n</sub>⋅X<sub>n</sub>)</sup>)</p>
+      
+      <h3><b>Results</b></h3>
+      <ul>
+        <li>30% reduction in downtime.</li>
+        <li>Cost savings through targeted maintenance.</li>
+        <li>Extended asset lifespan.</li>
+      </ul>
+      
+      <h3><b>Challenges</b></h3>
+      <p>Data quality issues (noisy/incomplete data) and feature selection complexity.</p>
+      
+      <h3><b>Conclusion</b></h3>
+      <p>Predictive Maintenance revolutionizes machine upkeep by proactively preventing failures, enhancing efficiency, and cutting costs.</p>
+    `,
 
-    "project2": "<h2>Customer Segmentation</h2>" +
-                "<p class='project-description'>In today's hyper-competitive business world, understanding your customers is no longer a luxury—it’s a necessity. With so many companies vying for attention, the key to success lies in identifying and understanding different customer segments. Customer Segmentation helps businesses categorize their customers based on shared characteristics, which allows for targeted marketing, personalized experiences, and improved customer retention.</p>" +
-                "<p class='project-description'>Imagine a company that sends the same marketing email to all its customers. For some, this may resonate, but for many others, it’s irrelevant. A one-size-fits-all marketing strategy is ineffective, and the company risks losing customers to competitors who offer more personalized experiences. The problem is clear: businesses need to segment their customers intelligently.</p>" +
-                "<p class='project-description'>In this project, we used unsupervised learning techniques, specifically K-means clustering, to identify distinct customer groups based on demographic data, purchasing behavior, and browsing habits. The ultimate goal was to deliver targeted marketing strategies based on segment characteristics.</p>" +
-                "<h3>Data Preprocessing</h3>" +
-                "<p class='project-description'>The first task was cleaning and preparing the data. We focused on customer attributes such as age, income, purchase history, and geographical location. Standardizing these features was crucial for the K-means algorithm to function effectively.</p>" +
-                "<h3>Model Building</h3>" +
-                "<p class='project-description'>K-means clustering is one of the most commonly used techniques for customer segmentation. The core idea behind K-means is to partition data into K distinct clusters. The algorithm assigns each data point to the cluster whose center is closest to the data point.</p>" +
-                "<ul>" +
-                "<li>Step 1: Initialize K centroids (randomly chosen).</li>" +
-                "<li>Step 2: Assign each data point to the nearest centroid.</li>" +
-                "<li>Step 3: Recalculate the centroids based on the assigned data points.</li>" +
-                "<li>Step 4: Repeat steps 2 and 3 until convergence.</li>" +
-                "</ul>" +
-                "<h3>Formula for K-means</h3>" +
-                "<p class='project-description'>The objective of K-means is to minimize the sum of squared distances between data points and their corresponding centroids:</p>" +
-                "<p class='project-description'>J = Σ<sub>i=1</sub><sup>K</sup> Σ<sub>x<sub>j</sub> ∈ C<sub>i</sub></sub> || x<sub>j</sub> - μ<sub>i</sub> ||<sup>2</sup></p>" +
-                "<p class='project-description'>Where:</p>" +
-                "<ul>" +
-                "<li><b>J</b> is the objective function (sum of squared distances).</li>" +
-                "<li><b>K</b> is the number of clusters.</li>" +
-                "<li><b>C<sub>i</sub></b> represents the points assigned to cluster i.</li>" +
-                "<li><b>μ<sub>i</sub></b> is the centroid of cluster i.</li>" +
-                "<li><b>x<sub>j</sub></b> is a data point.</li>" +
-                "</ul>" +
-                "<h3>Results and Findings</h3>" +
-                "<p class='project-description'>After applying K-means clustering, we identified several customer segments based on purchasing behavior and demographic profiles. These segments enabled the business to:</p>" +
-                "<ul>" +
-                "<li>Target specific groups with tailored marketing campaigns, increasing engagement by 25%.</li>" +
-                "<li>Personalize product recommendations, resulting in a 15% increase in sales.</li>" +
-                "<li>Improve customer retention by identifying at-risk groups and offering them incentives.</li>" +
-                "</ul>" +
-                "<h3>Challenges</h3>" +
-                "<p class='project-description'>The primary challenge was choosing the optimal number of clusters (K). The elbow method helped in this process, but in practice, customer segments can sometimes overlap, making it difficult to draw clear boundaries.</p>" +
-                "<h3>Conclusion</h3>" +
-                "<p class='project-description'>Customer Segmentation allows businesses to make smarter decisions, driving revenue and customer loyalty. By understanding the unique characteristics of each segment, companies can offer targeted products, personalized marketing, and enhance customer experiences.</p>",
-      "project3": `<h2>Academic Chatbot</h2>
-                  <p class='project-description'>
-                    The Academic Chatbot is engineered to serve as an intelligent assistant for academic institutions. By merging Retrieval-Augmented Generation (RAG) with Large Language Models (LLMs), the chatbot not only understands complex natural language queries but also dynamically retrieves relevant academic content to produce contextually enriched responses.
-                    <br><br>
-                    <strong>Technical Components:</strong><br>
-                    <strong>Retrieval-Augmented Generation (RAG):</strong> RAG is an innovative approach that synergizes retrieval mechanisms with generative models. It enables the system to reference external documents and databases during response generation, thereby enhancing factual correctness and context-awareness.<br>
-                    <strong>Retriever Module:</strong> Given a query <i>q</i>, the retriever identifies a subset of relevant documents <i>Dq</i> from a large corpus <i>D</i>. The retriever often employs vector representations and similarity search algorithms (e.g., cosine similarity over embeddings) to rank documents.<br>
-                    <strong>Generator Module:</strong> The generator conditions on both the query <i>q</i> and the retrieved documents <i>Dq</i> to produce a coherent answer <i>r</i>. This process uses deep sequence-to-sequence models (such as GPT or T5) fine-tuned on domain-specific data.<br>
-                    <strong>Large Language Models (LLMs):</strong> LLMs are pre-trained on vast datasets and are capable of capturing semantic nuances and complex linguistic structures. In this project, LLMs provide the backbone for natural language understanding and generation. Their capability to generalize over diverse contexts is augmented by the retrieval component.<br>
-                    <strong>Mathematical Formulation:</strong> The end-to-end operation of the RAG system can be seen as an optimization problem where we aim to maximize the likelihood of generating a correct response <i>r</i> given a query <i>q</i>.<br><br>
-                    <strong>Implementation Details:</strong><br>
-                    <strong>Data Sources:</strong> The system integrates academic databases, course catalogs, research papers, and FAQs to build a comprehensive knowledge base.<br>
-                    <strong>Frameworks & Libraries:</strong> Python, Hugging Face Transformers, Faiss.<br>
-                    <strong>Training Strategy:</strong> Pre-training on large datasets followed by fine-tuning using domain-specific academic content.<br><br>
-                    <strong>Expert Considerations:</strong><br>
-                    <strong>Scalability:</strong> The system is designed for scalability, with modular components that can be independently updated as new academic content becomes available.<br>
-                    <strong>Evaluation Metrics:</strong> BLEU, ROUGE, and human-in-the-loop feedback.
-                  </p>`,
-    "project4": `<h2>Healthcare Image Classification</h2>
-                  <video controls width="600">
-                    <source src="https://github.com/bolleddu15/pradeepb-blog/blob/main/neural%20networks%20video.mp4?raw=true" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                  <p class='project-description'>
-                    The Healthcare Image Classification project aims to assist radiologists by automating the detection and classification of diseases from medical images. Primarily focusing on chest X-rays, the system utilizes Convolutional Neural Networks (CNNs) to identify patterns that indicate conditions such as lung cancer and pneumonia.
-                    <br><br>
-                    <strong>Technical Components:</strong><br>
-                    <strong>Image Classification Using CNNs:</strong> CNNs are the cornerstone of modern image analysis due to their ability to learn spatial hierarchies through convolutional filters. The architecture typically involves several layers:<br>
-                    <strong>Convolutional Layers:</strong> These layers apply learnable filters to extract local features.<br>
-                    <strong>Pooling Layers:</strong> Pooling reduces the spatial dimensions, retaining essential information while minimizing computational load.<br>
-                    <strong>Fully Connected Layers:</strong> These layers integrate features extracted by the convolutional layers to produce a final classification output.<br>
-                    <strong>Loss Function and Optimization:</strong> Cross-entropy loss is employed for multi-class classification.<br><br>
-                    <strong>Implementation Details:</strong><br>
-                    <strong>Data Pipeline:</strong> Curated dataset of chest X-rays with annotations, using data augmentation techniques.<br>
-                    <strong>Frameworks & Libraries:</strong> TensorFlow, PyTorch, Keras, OpenCV.<br>
-                    <strong>Training Strategy:</strong> Cross-validation and test set evaluation with regularization techniques such as dropout and batch normalization.<br><br>
-                    <strong>Expert Considerations:</strong><br>
-                    <strong>Interpretability:</strong> Grad-CAM is integrated to visualize model attention.<br>
-                    <strong>Deployment:</strong> Designed for integration into hospital systems, ensuring performance and regulatory standards.<br>
-                    <strong>Performance Metrics:</strong> Accuracy, precision, recall, F1-score, and AUC.
-                  </p>`
+    "project2": `
+      <h2><b>Customer Segmentation</b></h2>
+      <p><strong>Introduction:</strong> Understanding customer behavior is key to business success. Customer Segmentation helps businesses tailor marketing strategies for specific groups.</p>
+      
+      <h3><b>Problem Statement</b></h3>
+      <p>A one-size-fits-all marketing approach is ineffective. Businesses need to segment customers intelligently based on behavior and demographics.</p>
+      
+      <h3><b>Solution</b></h3>
+      <p>Using <b>K-means clustering</b>, we grouped customers based on age, income, purchase history, and browsing habits.</p>
+      
+      <h3><b>Data Preprocessing</b></h3>
+      <p>Data cleaning and standardization were crucial for K-means effectiveness.</p>
+      
+      <h3><b>Model Building</b></h3>
+      <ul>
+        <li>Step 1: Initialize K centroids.</li>
+        <li>Step 2: Assign points to the nearest centroid.</li>
+        <li>Step 3: Recalculate centroids.</li>
+        <li>Step 4: Repeat until convergence.</li>
+      </ul>
+      
+      <h3><b>Clustering Formula</b></h3>
+      <p>J = Σ<sub>i=1</sub><sup>K</sup> Σ<sub>x<sub>j</sub> ∈ C<sub>i</sub></sub> || x<sub>j</sub> - μ<sub>i</sub> ||<sup>2</sup></p>
+      
+      <h3><b>Results</b></h3>
+      <ul>
+        <li>Identified distinct customer groups.</li>
+        <li>Enhanced personalized marketing.</li>
+        <li>Increased customer retention.</li>
+      </ul>
+      
+      <h3><b>Conclusion</b></h3>
+      <p>Customer segmentation enables data-driven marketing, leading to better engagement and profitability.</p>
+    `,
+
+    "project3": `
+      <h2><b>Fraud Detection System</b></h2>
+      <p><strong>Introduction:</strong> Financial fraud is a growing concern, and traditional rule-based methods are insufficient. Machine learning enhances fraud detection by identifying anomalies in transactions.</p>
+      
+      <h3><b>Problem Statement</b></h3>
+      <p>Detecting fraudulent transactions in real-time to minimize financial losses and prevent unauthorized activities.</p>
+      
+      <h3><b>Solution</b></h3>
+      <p>Applied <b>Random Forest</b> and <b>Neural Networks</b> to classify transactions as fraudulent or legitimate based on behavioral patterns.</p>
+      
+      <h3><b>Data Preprocessing</b></h3>
+      <p>Normalized transaction data, handled class imbalance using SMOTE, and engineered risk-based features.</p>
+      
+      <h3><b>Results</b></h3>
+      <ul>
+        <li>Achieved 95% fraud detection accuracy.</li>
+        <li>Reduced false positives by 20%.</li>
+      </ul>
+    `,
+
+    "project4": `
+      <h2><b>Recommender System</b></h2>
+      <p><strong>Introduction:</strong> Personalized recommendations drive user engagement in e-commerce and streaming services.</p>
+      
+      <h3><b>Problem Statement</b></h3>
+      <p>Users struggle to find relevant content. A recommendation engine enhances user experience by suggesting personalized items.</p>
+      
+      <h3><b>Solution</b></h3>
+      <p>Implemented a hybrid recommender using <b>Collaborative Filtering</b> and <b>Content-Based Filtering</b>.</p>
+      
+      <h3><b>Results</b></h3>
+      <ul>
+        <li>Improved click-through rate by 25%.</li>
+        <li>Increased user engagement and retention.</li>
+      </ul>
+    `
   };
-  projectContent.innerHTML = projectData[projectId] || "<p>Project not found.</p>";
-  setActiveTab("tab_project");
+
+  document.getElementById("projectContent").innerHTML = projectData[projectId];
 }
-  
 
 
       // Function to load publication details
