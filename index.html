@@ -67,25 +67,19 @@
     }
 
     /* Home section styling: image on the left, text on the right */
-   #home-section img {
-  width: 180px;
-  height: auto;
-  border-radius: 50%;
-  border: 3px solid white;
-  margin-top: -20px; /* Added negative margin to move up */
-}
-  #home-section .beach-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 75%; /* Covers 3/4 of the section */
-  height: 100%;
-  background-image: url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/beach.jpeg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5;
-  z-index: 1;
-}
+  /* Home section styling: image on the left, text on the right */
+    #home-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    #home-section img {
+      width: 180px; /* increased image size */
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
     #home-section .welcome-text {
       max-width: 600px;
     }
@@ -124,17 +118,21 @@
     }
 
     /* Footer styling */
- .footer {
-  text-align: center;
-  padding: 10px;
-  background: #f8f9fa; /* Added light background */
-  border-top: 1px solid #e9ecef; /* Added top border */
-  position: fixed; /* Fixed positioning */
-  bottom: 0;
-  width: 100%;
-  z-index: 10;
+   .footer {
+    text-align: center;
+    padding: 0px;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
+    .footer a {
+      margin: 0 px;
+    }
 
+    .footer img {
+      width: 20px;  /* Reduced the width to 20px */
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -174,10 +172,7 @@
 <p style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">
   Don't Miss out on Data Science Stories !!
 </p>
-
-<!-- Image placed after the "Don't Miss out" line -->
-<img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/beach.jpeg" alt="Beach" style="width: 100%; max-width: 600px; height: auto; margin-top: 20px;">
-
+      
   <!-- Inline CSS for Smooth Transition -->
   <style>
     @keyframes fadeIn {
@@ -190,8 +185,7 @@
     }
   </style>
 </section>
-
-
+      
     <!-- Projects Section -->
     <section class="tabs__tab" id="tab_2">
       <h1>Projects</h1>
