@@ -143,63 +143,54 @@
 
   <main>
 <!-- Home Section -->
-   <!-- Home Section -->
-    <section class="tabs__tab active" id="tab_1">
-      <div id="home-section">
-        <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu" />
-        <div class="welcome-text">
-          <h1>Welcome</h1>
-          <p>
-            Welcome to My Data Science Journey!<br />
-            Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
-            Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
-            Join me as I dive deep into data-driven solutions that drive change, enhance automation, and push the boundaries of what's possible!
-          </p>
-        </div>
-      </div>
-    </section>
-  
-    <!-- Right side: Welcome Text and Intro Description -->
-    <div class="welcome-text" style="position: relative; z-index: 2;">
+<section class="tabs__tab active" id="tab_1">
+  <div id="home-section" style="position: relative; z-index: 1;">
+    <img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/my%20image.jpeg" 
+         alt="Pradeep Bolleddu" style="max-width: 100%; height: auto; display: block; margin: auto;" />
+    <div class="welcome-text">
       <h1>Welcome</h1>
       <p>
-        Welcome to My Portfolio, I'm Pradeep Bolleddu!!<br />
+        Welcome to My Data Science Journey!<br />
         Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
         Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
-        The Intersection of Big Data Science with Artificial Intelligence is a great path to work on & I Enjoy it!  
-      </p>
-        
-      <!-- Intro Text in Italics with Smooth Transition -->
-      <p style="font-style: italic; opacity: 0; animation: fadeIn 2s forwards 1s;">
-         With a Master's degree in Data Science and AI! From building Models to solving real-world problems, I've honed my skills in AI, machine learning, and big data analytics to not just analyze data.
-      </p>
-
-      <!-- Caption Below Description -->
-      <p style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">
-        Don't Miss out on Data Science Stories !!
+        Join me as I dive deep into data-driven solutions that drive change, enhance automation, and push the boundaries of what's possible!
       </p>
     </div>
   </div>
 
-  <!-- Background Image with Smooth Transition -->
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; 
-              background-image: url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/beach.jpeg'); 
-              background-size: cover; background-position: center; opacity: 0.5;">
+  <!-- Right Side: Welcome Text -->
+  <div class="welcome-text" style="position: relative; z-index: 2;">
+    <h1>Welcome</h1>
+    <p>
+      Welcome to My Portfolio, I'm Pradeep Bolleddu!!<br />
+      Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
+      Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
+      The Intersection of Big Data Science with Artificial Intelligence is a great path to work on & I Enjoy it!  
+    </p>
+
+    <p style="font-style: italic; opacity: 0; animation: fadeIn 2s forwards 1s;">
+      With a Master's degree in Data Science and AI! From building Models to solving real-world problems, I've honed my skills in AI, machine learning, and big data analytics to not just analyze data.
+    </p>
+
+    <p style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">
+      Don't Miss out on Data Science Stories !!
+    </p>
   </div>
 
-  <!-- Inline CSS for Smooth Transition -->
+  <!-- Background Image -->
+  <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+              background-image: url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/beach.jpeg'); 
+              background-size: cover; background-position: center; opacity: 0.5; z-index: -1;">
+  </div>
+
+  <!-- Smooth Transition -->
   <style>
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </section>
-
 
     <!-- Projects Section -->
     <section class="tabs__tab" id="tab_2">
