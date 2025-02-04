@@ -6,10 +6,15 @@
   <title>Home | Pradeep Bolleddu</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Prevent horizontal scrolling */
+    html, body {
+      overflow-x: hidden;
+    }
+
     /* General Tabs styling */
     .tabs__tab {
       display: none;
-      width: 100vw;
+      width: 100%;  /* Change from 100vw to 100% */
       min-height: 100vh;
       padding: 20px;
       box-sizing: border-box;
@@ -17,6 +22,25 @@
     }
     .tabs__tab.active {
       display: block;
+    }
+
+    /* Navigation styling */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li {
+      margin: 0 8px; /* reduced gap between tabs */
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      padding: 8px 12px;
+      transition: border-bottom 0.3s;
     }
 
     /* Navigation styling */
@@ -64,24 +88,27 @@
 
     /* Projects and Publications list styling */
     #projects-list,
-    #publications-list {
+    #publications-list,
+    #stories-list {
       list-style: none;
       padding: 0;
       text-align: left; /* ensure items start from the left */
     }
     #projects-list li,
-    #publications-list li {
+    #publications-list li,
+    #stories-list li {
       margin-bottom: 15px;
     }
-    /* Styling for project/publication links to appear as plain text */
+    /* Styling for project/publication/story links to appear as plain text */
     .project-link,
-    .publication-link {
+    .publication-link,
+    .story-link {
       font-size: 24px;
       color: inherit;
       text-decoration: none;
       cursor: pointer;
     }
-    
+
     /* Project/Publication description styling */
     #project-content p,
     #publication-content p {
@@ -94,11 +121,13 @@
       text-align: center;
       padding: 20px;
     }
+
     .footer a {
       margin: 0 10px;
     }
+
     .footer img {
-      width: 30px;
+      width: 20px;  /* Reduced the width to 20px */
       height: auto;
     }
   </style>
@@ -115,21 +144,59 @@
   </nav>
 
   <main>
-    <!-- Home Section -->
-    <section class="tabs__tab active" id="tab_1">
-      <div id="home-section">
-        <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu" />
-        <div class="welcome-text">
-          <h1>Welcome</h1>
-          <p>
-            Welcome to My Data Science Journey!<br />
-            Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
-            Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
-            Join me as I dive deep into data-driven solutions that drive change, enhance automation, and push the boundaries of what's possible!
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- Home Section -->
+<section class="tabs__tab active" id="tab_1">
+  <div id="home-section" style="display: flex; align-items: center; gap: 20px; position: relative; overflow: hidden;">
+    <!-- Left side: Personal Image -->
+    <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu" style="max-width: 40%; height: auto; border-radius: 15px; z-index: 2;">
+    <img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/my%20image.jpeg" 
+         alt="Pradeep Bolleddu" 
+         style="max-width: 40%; height: auto; border-radius: 15px; z-index: 2;">
+
+    <!-- Right side: Welcome Text and Intro Description -->
+    <div class="welcome-text" style="position: relative; z-index: 2;">
+      <h1>Welcome</h1>
+      <p>
+        Welcome to My Portfolio, I'm Pradeep Bolleddu!!<br />
+        Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
+        Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
+        The Intersection of Big Data sceience with Artificial Intelligence is great path to work on & I Enjoy !  </p>
+        The Intersection of Big Data Science with Artificial Intelligence is a great path to work on & I Enjoy it!  
+      </p>
+
+      <!-- Intro Text in Italics with Smooth Transition -->
+      <p style="font-style: italic; opacity: 0; animation: fadeIn 2s forwards 1s;">
+         With a Master's degree in Data Science and AI! From building Models to solving real-world problems, I've honed my skills in AI, machine learning, and big data analytics to not just analyze data.
+      </p>
+
+      <!-- Caption Below Description -->
+      <p style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">
+        Don't Miss out Data Science Stories !!
+        Don't Miss out on Data Science Stories !!
+      </p>
+    </div>
+  </div>
+
+  <!-- Background Image with Smooth Transition -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-image: url('https://github.com/bolleddu15/pradeepb-blog/blob/main/beach.jpeg'); background-size: cover; background-position: center; opacity: 0.5;"></div>
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; 
+              background-image: url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/beach.jpeg'); 
+              background-size: cover; background-position: center; opacity: 0.5;">
+  </div>
+
+  <!-- Inline CSS for Smooth Transition -->
+  <style>
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</section>
+
 
     <!-- Projects Section -->
     <section class="tabs__tab" id="tab_2">
@@ -538,4 +605,3 @@ function loadStory(storyId) {
   </script>
 </body>
 </html>
-
