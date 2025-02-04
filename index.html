@@ -444,34 +444,27 @@
         publicationContent.innerHTML = publicationData[publicationId] || "<p>Publication not found.</p>";
         setActiveTab("tab_publication");
       }
-
 // Function to load Data Science Story details with background images
 function loadStory(storyId) {
   const storyData = {
     "story1": {
       "content": `
         <h1>The Secret Data Behind Apple’s Innovation</h1>
-        <div class="story-text">
-          <p>Deep inside Apple’s infrastructure, streams of telemetry data flow from devices around the globe into a multi-tiered analytics platform...</p>
-        </div>
+        <p>Deep inside Apple’s infrastructure, streams of telemetry data flow from devices around the globe into a multi-tiered analytics platform...</p>
       `,
       "background": "url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/apple%20image.jpg')"
     },
     "story2": {
       "content": `
         <h2>The Hidden World of AI at Google</h2>
-        <div class="story-text">
-          <p>Google’s AI infrastructure leverages vast datasets from search queries to navigation...</p>
-        </div>
+        <p>Google’s AI infrastructure leverages vast datasets from search queries to navigation...</p>
       `,
       "background": "url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/googl.png')"
     },
     "story3": {
       "content": `
         <h3>How OpenAI is Paving the Way for a New Age of Intelligence?</h3>
-        <div class="story-text">
-          <p>OpenAI’s mission is to build machines that can reason and learn like humans...</p>
-        </div>
+        <p>OpenAI’s mission is to build machines that can reason and learn like humans...</p>
       `,
       "background": "url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/open%20ai.png')"
     }
@@ -481,26 +474,20 @@ function loadStory(storyId) {
     // Display the story content
     storyContent.innerHTML = storyData[storyId].content;
 
-    // Remove any existing background and set the light default background for the page
-    document.body.style.backgroundImage = ""; // No global background image
-    document.body.style.backgroundColor = "#f0f0f0"; // Default light background color
+    // Reset any global background image and set a light default background color
+    document.body.style.backgroundImage = ""; // Clear background image on body
+    document.body.style.backgroundColor = "#f0f0f0"; // Light background color for page
 
-    // Apply the background image and smooth transition effects to the whole page
-    document.body.style.transition = "background 1.5s ease-in-out";
-    document.body.style.backgroundImage = storyData[storyId].background;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundAttachment = "fixed";
-    document.body.style.height = "100vh"; // Make sure the body fills the screen
-
-    // Apply smooth fading effect to the story content background to make it melt in
-    const storyText = document.querySelector('.story-text');
-    if (storyText) {
-      storyText.style.position = "relative";
-      storyText.style.zIndex = "1"; // Ensure text appears above the background
-      storyText.style.padding = "20px";
-      storyText.style.backgroundColor = "rgba(255, 255, 255, 0.7)"; // Light semi-transparent overlay for text readability
-      storyText.style.borderRadius = "10px"; // Rounded corners for a smooth appearance
+    // Apply the background image to a specific part of the story content
+    const storyHeader = document.querySelector('h1, h2, h3');
+    if (storyHeader) {
+      storyHeader.style.backgroundImage = storyData[storyId].background;
+      storyHeader.style.backgroundSize = "cover";
+      storyHeader.style.backgroundPosition = "center";
+      storyHeader.style.backgroundAttachment = "fixed";
+      storyHeader.style.color = "white"; // Make the header text readable
+      storyHeader.style.padding = "20px"; // Padding around the header text
+      storyHeader.style.borderRadius = "10px"; // Optional: rounded corners for a softer look
     }
   } else {
     storyContent.innerHTML = "<p>Story not found.</p>";
@@ -508,7 +495,6 @@ function loadStory(storyId) {
 
   setActiveTab("tab_story");
 }
-
 
       // Listen for clicks on main navigation links
       document.querySelectorAll(".tab-link").forEach(link => {
