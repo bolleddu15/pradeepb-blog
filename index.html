@@ -116,25 +116,23 @@
       font-size: 18px;
     }
 
-    /* Footer styling */
-    .footer {
-      text-align: center;
-      padding: 20px;
-    }
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 20px;
+}
 
-    .footer a {
-      margin: 0 10px;
-    }
+.footer a {
+  margin: 0 10px;
+}
 
-    .footer img {
-      width: 20px;  /* Reduced the width to 20px */
-      height: auto;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <ul>
+.footer img {
+  width: 30px;  /* Increased the width for better visibility */
+  height: auto;
+  position: fixed; /* Keeps the logos fixed */
+  bottom: 10px; /* Adjusts position */
+}
+
       <!-- Updated links with hash-based routing -->
       <li><a href="#/" class="tab-link" data-tab="tab_1">Home</a></li>
       <li><a href="#/projects" class="tab-link" data-tab="tab_2">Projects</a></li>
@@ -150,8 +148,17 @@
     <!-- Left side: Personal Image -->
     <img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/my%20image.jpeg" 
          alt="Pradeep Bolleddu" 
-         style="max-width: 40%; height: auto; border-radius: 15px; z-index: 2;">
-    
+         style="
+           max-width: 45%; /* Increased size slightly */
+           height: auto;
+           border-radius: 15px;
+           filter: brightness(0.95) contrast(1.1) blur(1px); /* Blends image into background */
+           box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3); /* Adds a soft shadow for smooth blending */
+           z-index: 2;
+         ">
+  </div>
+</section>
+  
     <!-- Right side: Welcome Text and Intro Description -->
     <div class="welcome-text" style="position: relative; z-index: 2;">
       <h1>Welcome</h1>
