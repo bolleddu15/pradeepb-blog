@@ -88,18 +88,21 @@
 
     /* Projects and Publications list styling */
     #projects-list,
-    #publications-list {
+    #publications-list,
+    #stories-list {
       list-style: none;
       padding: 0;
       text-align: left; /* ensure items start from the left */
     }
     #projects-list li,
-    #publications-list li {
+    #publications-list li,
+    #stories-list li {
       margin-bottom: 15px;
     }
-    /* Styling for project/publication links to appear as plain text */
+    /* Styling for project/publication/story links to appear as plain text */
     .project-link,
-    .publication-link {
+    .publication-link,
+    .story-link {
       font-size: 24px;
       color: inherit;
       text-decoration: none;
@@ -113,20 +116,20 @@
       font-size: 18px;
     }
 
-/* Footer styling */
-.footer {
-  text-align: center;
-  padding: 20px;
-}
+    /* Footer styling */
+    .footer {
+      text-align: center;
+      padding: 20px;
+    }
 
-.footer a {
-  margin: 0 10px;
-}
+    .footer a {
+      margin: 0 10px;
+    }
 
-.footer img {
-  width: 20px;  /* Reduced the width to 20px */
-  height: auto;
-}
+    .footer img {
+      width: 20px;  /* Reduced the width to 20px */
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -224,53 +227,34 @@
       <div id="publication-content"></div>
     </section>
 
-<section class="tabs__tab" id="tab_4">
-      <h1>The Secret Data Behind Apple’s Innovation</h1>
-  <p>Deep inside Apple’s infrastructure, streams of telemetry data flow from devices around the globe into a multi-tiered analytics platform. Here, proprietary data ingestion tools—written in Swift and optimized for performance and security—capture everything from subtle user interactions on the iPhone to sensor data on the Apple Watch.</p>
-        <p><strong>The Tech Stack and Innovation</strong></p>
-        <ul>
-            <li><strong>Data Ingestion & Streaming:</strong> Speculated proprietary streaming platform, possibly inspired by Kafka, ensuring secure, low-latency data ingestion.</li>
-            <li><strong>Processing & Analytics:</strong> A mix of in-house tools and industry frameworks running advanced machine learning pipelines.</li>
-            <li><strong>Privacy-Preserving Machine Learning:</strong> Federated learning and privacy-focused AI techniques drive Siri’s NLP advancements and battery optimizations.</li>
-        </ul>
-        <p><em>Beyond the Dashboard: Real-World Impact</em></p>
-        <ul>
-            <li>Iterative product enhancements guided by data-driven insights.</li>
-            <li>Predictive analytics shaping customer experience.</li>
-            <li>Ecosystem-wide integration ensuring seamless functionality.</li>
-        </ul>
-      <h2>The Hidden World of AI at Google</h2>
-  <h2>The AI Ecosystem in Action</h2>
-        <p>Google’s AI infrastructure leverages vast datasets from search queries to navigation, feeding into one of the world’s largest AI research ecosystems.</p>
-        <p><strong>Dissecting the Tech Stack</strong></p>
-        <ul>
-            <li><strong>TensorFlow:</strong> A deep learning library optimized for massive-scale model training.</li>
-            <li><strong>Search & NLP:</strong> Advanced neural networks like BERT and MUM refine search accuracy.</li>
-            <li><strong>Reinforcement Learning:</strong> Google DeepMind’s AI-driven robotics and game-playing models.</li>
-            <li><strong>Cloud AI Services:</strong> Scalable AI solutions for businesses.</li>
-        </ul>
-        <p><em>Transformative Applications</em></p>
-        <ul>
-            <li>Predictive search enhancements.</li>
-            <li>AI-driven healthcare diagnostics.</li>
-            <li>Energy-efficient data centers.</li>
-        </ul>
-      <h3>How OpenAI is Paving the Way for a New Age of Intelligence?</h3>
-  <p>OpenAI’s mission is to build machines that can reason and learn like humans. This pursuit involves large-scale model training, reinforcement learning, and safety research.</p>
-        <p><strong>Inside the Technical Lab</strong></p>
-        <ul>
-            <li><strong>Model Architectures:</strong> Transformer-based AI models excelling in natural language understanding.</li>
-            <li><strong>Scaling Laws:</strong> Massive cloud-based infrastructures optimizing deep learning performance.</li>
-            <li><strong>RLHF:</strong> Human-in-the-loop feedback mechanisms ensuring ethical AI behavior.</li>
-            <li><strong>Safety Research:</strong> Ongoing risk mitigation strategies.</li>
-        </ul>
-        <p><em>A Future Transformed</em></p>
-        <ul>
-            <li>AGI-enhanced economic productivity.</li>
-            <li>Accelerated scientific breakthroughs.</li>
-            <li>Reshaping education and governance.</li>
-        </ul>
-</section>
+    <!-- Data Science Stories List Section -->
+    <section class="tabs__tab" id="tab_4">
+      <h1>Data Science Stories</h1>
+      <ul id="stories-list">
+        <li>
+          <a href="#/stories/story1" class="story-link" data-story="story1">
+            The Secret Data Behind Apple’s Innovation
+          </a>
+        </li>
+        <li>
+          <a href="#/stories/story2" class="story-link" data-story="story2">
+            The Hidden World of AI at Google
+          </a>
+        </li>
+        <li>
+          <a href="#/stories/story3" class="story-link" data-story="story3">
+            How OpenAI is Paving the Way for a New Age of Intelligence?
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Data Science Story Details Section -->
+    <section class="tabs__tab" id="tab_story">
+      <div id="story-content">
+        <!-- Story details will be loaded here dynamically -->
+      </div>
+    </section>
 
   </main>
 
@@ -296,6 +280,7 @@
       const navLinks = document.querySelectorAll("nav ul li a");
       const projectContent = document.getElementById("project-content");
       const publicationContent = document.getElementById("publication-content");
+      const storyContent = document.getElementById("story-content");
 
       // Function to remove active class and set the active tab
       function setActiveTab(tabId) {
@@ -434,6 +419,66 @@
         setActiveTab("tab_publication");
       }
 
+      // Function to load Data Science Story details
+      function loadStory(storyId) {
+        const storyData = {
+          "story1": `
+            <h1>The Secret Data Behind Apple’s Innovation</h1>
+            <p>Deep inside Apple’s infrastructure, streams of telemetry data flow from devices around the globe into a multi-tiered analytics platform. Here, proprietary data ingestion tools—written in Swift and optimized for performance and security—capture everything from subtle user interactions on the iPhone to sensor data on the Apple Watch.</p>
+            <p><strong>The Tech Stack and Innovation</strong></p>
+            <ul>
+              <li><strong>Data Ingestion & Streaming:</strong> Speculated proprietary streaming platform, possibly inspired by Kafka, ensuring secure, low-latency data ingestion.</li>
+              <li><strong>Processing & Analytics:</strong> A mix of in-house tools and industry frameworks running advanced machine learning pipelines.</li>
+              <li><strong>Privacy-Preserving Machine Learning:</strong> Federated learning and privacy-focused AI techniques drive Siri’s NLP advancements and battery optimizations.</li>
+            </ul>
+            <p><em>Beyond the Dashboard: Real-World Impact</em></p>
+            <ul>
+              <li>Iterative product enhancements guided by data-driven insights.</li>
+              <li>Predictive analytics shaping customer experience.</li>
+              <li>Ecosystem-wide integration ensuring seamless functionality.</li>
+            </ul>
+          `,
+          "story2": `
+            <h2>The Hidden World of AI at Google</h2>
+            <h2>The AI Ecosystem in Action</h2>
+            <p>Google’s AI infrastructure leverages vast datasets from search queries to navigation, feeding into one of the world’s largest AI research ecosystems.</p>
+            <p><strong>Dissecting the Tech Stack</strong></p>
+            <ul>
+              <li><strong>TensorFlow:</strong> A deep learning library optimized for massive-scale model training.</li>
+              <li><strong>Search & NLP:</strong> Advanced neural networks like BERT and MUM refine search accuracy.</li>
+              <li><strong>Reinforcement Learning:</strong> Google DeepMind’s AI-driven robotics and game-playing models.</li>
+              <li><strong>Cloud AI Services:</strong> Scalable AI solutions for businesses.</li>
+            </ul>
+            <p><em>Transformative Applications</em></p>
+            <ul>
+              <li>Predictive search enhancements.</li>
+              <li>AI-driven healthcare diagnostics.</li>
+              <li>Energy-efficient data centers.</li>
+            </ul>
+          `,
+          "story3": `
+            <h3>How OpenAI is Paving the Way for a New Age of Intelligence?</h3>
+            <p>OpenAI’s mission is to build machines that can reason and learn like humans. This pursuit involves large-scale model training, reinforcement learning, and safety research.</p>
+            <p><strong>Inside the Technical Lab</strong></p>
+            <ul>
+              <li><strong>Model Architectures:</strong> Transformer-based AI models excelling in natural language understanding.</li>
+              <li><strong>Scaling Laws:</strong> Massive cloud-based infrastructures optimizing deep learning performance.</li>
+              <li><strong>RLHF:</strong> Human-in-the-loop feedback mechanisms ensuring ethical AI behavior.</li>
+              <li><strong>Safety Research:</strong> Ongoing risk mitigation strategies.</li>
+            </ul>
+            <p><em>A Future Transformed</em></p>
+            <ul>
+              <li>AGI-enhanced economic productivity.</li>
+              <li>Accelerated scientific breakthroughs.</li>
+              <li>Reshaping education and governance.</li>
+            </ul>
+          `
+        };
+
+        storyContent.innerHTML = storyData[storyId] || "<p>Story not found.</p>";
+        setActiveTab("tab_story");
+      }
+
       // Listen for clicks on main navigation links
       document.querySelectorAll(".tab-link").forEach(link => {
         link.addEventListener("click", event => {
@@ -452,6 +497,14 @@
 
       // Listen for clicks on publication links
       document.querySelectorAll(".publication-link").forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          window.location.hash = link.getAttribute("href");
+        });
+      });
+
+      // Listen for clicks on story links
+      document.querySelectorAll(".story-link").forEach(link => {
         link.addEventListener("click", event => {
           event.preventDefault();
           window.location.hash = link.getAttribute("href");
@@ -490,7 +543,15 @@
             setActiveTab("tab_3");
           }
         } else if (hash.startsWith("#/stories")) {
-          setActiveTab("tab_4");
+          if (hash.includes("story1")) {
+            loadStory("story1");
+          } else if (hash.includes("story2")) {
+            loadStory("story2");
+          } else if (hash.includes("story3")) {
+            loadStory("story3");
+          } else {
+            setActiveTab("tab_4");
+          }
         } else {
           setActiveTab("tab_1");
         }
@@ -502,3 +563,4 @@
   </script>
 </body>
 </html>
+
