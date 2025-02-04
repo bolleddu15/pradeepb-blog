@@ -146,25 +146,47 @@
   <main>
 <!-- Home Section -->
 <section class="tabs__tab active" id="tab_1">
-  <div id="home-section" style="display: flex; align-items: center; gap: 20px;">
+  <div id="home-section" style="display: flex; align-items: center; gap: 20px; position: relative; overflow: hidden;">
     <!-- Left side: Personal Image -->
-    <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu" style="max-width: 40%; height: auto; border-radius: 15px;">
+    <img src="https://github.com/bolleddu15/pradeepb-blog/blob/main/my%20image.jpeg?raw=true" alt="Pradeep Bolleddu" style="max-width: 40%; height: auto; border-radius: 15px; z-index: 2;">
     
     <!-- Right side: Welcome Text and Intro Description -->
-    <div class="welcome-text">
+    <div class="welcome-text" style="position: relative; z-index: 2;">
       <h1>Welcome</h1>
       <p>
         Welcome to My Data Science Journey!<br />
         Step into the world of data, where curiosity meets innovation! This is my personal blog, a space where I unravel the fascinating realms of data science, machine learning, and artificial intelligence.
         Here, I share my experiences, breakthroughs, and the insights I've gained while exploring the intersection of cutting-edge technology and real-world problem-solving.
         Join me as I dive deep into data-driven solutions that drive change, enhance automation, and push the boundaries of what's possible! </p>
-        <!-- Intro Image Below the Description -->
-<div style="text-align: center; margin-top: 20px;">
-  <img src="https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/intro%20image.jpg" alt="Mountains" style="max-width: 100%; height: auto; border-radius: 15px;">
-  
+        
+      <!-- Intro Text in Italics with Smooth Transition -->
+      <p style="font-style: italic; opacity: 0; animation: fadeIn 2s forwards 1s;">
+        Hello! I'm Pradeep, a passionate data scientist with a deep-rooted fascination for transforming raw data into innovative solutions. Armed with a Master's degree in Data Science and AI from IIT Ropar, my journey in this ever-evolving field has been shaped by a relentless pursuit of excellence. From building predictive models to solving real-world problems, I've honed my skills in AI, machine learning, and big data analytics to not just analyze data, but to craft insights that spark change. Throughout my career, I’ve had the privilege of working on cutting-edge projects that push boundaries—whether it's optimizing healthcare systems with AI or crafting ML solutions that drive business growth. Every project is an opportunity to explore new challenges, build impactful tools, and turn complex data into actionable intelligence.
+      </p>
+
+      <!-- Caption Below Description -->
+      <p style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">
+        In my Data Science Stories, I share my insights and experiences navigating the world of AI and machine learning. Whether it's solving a real-world problem or discussing trends in the industry, you’ll find articles that inspire and inform.
+      </p>
     </div>
   </div>
+
+  <!-- Background Image with Smooth Transition -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-image: url('https://raw.githubusercontent.com/bolleddu15/pradeepb-blog/main/intro%20image.jpg'); background-size: cover; background-position: center; opacity: 0.5;"></div>
+
+  <!-- Inline CSS for Smooth Transition -->
+  <style>
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
 </section>
+
 
     <!-- Projects Section -->
     <section class="tabs__tab" id="tab_2">
